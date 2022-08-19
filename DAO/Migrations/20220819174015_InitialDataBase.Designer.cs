@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAO.Migrations
 {
     [DbContext(typeof(ChamadosDbContext))]
-    [Migration("20220817200051_InitialDataBase")]
+    [Migration("20220819174015_InitialDataBase")]
     partial class InitialDataBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

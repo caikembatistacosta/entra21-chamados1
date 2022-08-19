@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Dahk+KDR/TT0KrNJ0rIDgwg+iC4zJOkwzAnH3BruyxsCw90OhleGqynAZu9yo49jkKl6ANzinAKJG4YDbBb9Eg==",
+  "dgSpecHash": "20oBsoXO16B5RQljnPHc15Y4tj2ftEYU9q4HMxJv+Rs5VJ6AMtMXokk1DG5vy2hpySEDyIczq8A/DhYS1c7kBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\source\\repos\\Chamados\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Desktop\\entra21-chamados1\\entra21-chamados1\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation\\11.2.0\\fluentvalidation.11.2.0.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

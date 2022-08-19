@@ -7,7 +7,9 @@ namespace WEBPresentationLayer.Profile.Clientes
     {
         public ClienteProfile()
         {
-            CreateMap<ClienteInsertViewModel, Cliente>(); 
+            CreateMap<ClienteInsertViewModel, Cliente>();
+            CreateMap<ClienteSelectViewModel, Cliente>();
+            CreateMap<Cliente, ClienteSelectViewModel>();
         }
     }
 }
