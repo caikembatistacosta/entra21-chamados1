@@ -13,15 +13,15 @@ namespace Common
             return new Response()
             {
                 HasSuccess = true,
-                Message = "Sucesso"
-        };
+                Message = "Operação realizada com sucesso"
+            };
         }
         public static Response CreateFailureResponse()
         {
             return new Response()
             {
                 HasSuccess = false,
-                Message = "Falha",
+                Message = "Operação falhou",
             };
         }
     }
