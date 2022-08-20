@@ -5,7 +5,7 @@ namespace WEBPresentationLayer.Models.Cliente
 {
     public class ClienteSelectViewModel
     {
-
+        public int ID { get; set; }
         public string Nome { get; set; }
 
         public string CPF { get; set; }

@@ -53,9 +53,24 @@ namespace MVCPresentationLayer.Controllers
             ViewBag.Errors = response.Message;
             return View();
         }
-
-        public IActionResult Edit(int valor)
+        [HttpGet]
+        public IActionResult Edit(int id = 0)
         {
+            if (id == 0)
+                return View(new Cliente());
+            else
+                return View(_clientesvc.GetById(id));
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
+        {
+            Cliente cliente = _mapper.Map<Cliente>(viewModel);
+            Response response = await _clientesvc.Update(cliente);
+            if (response.HasSuccess)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.Errors = response.Message;
             return View();
         }
 

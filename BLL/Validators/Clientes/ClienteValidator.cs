@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using BLL.Validators.ComonsValidators;
+using BLL.Constants;
 
 namespace BLL.Validators.Clientes
 {
@@ -13,28 +14,26 @@ namespace BLL.Validators.Clientes
     {
         public void ValidateID()
         {
-            RuleFor(c => c.ID).NotNull().WithMessage("ID deve ser informado.");
+            RuleFor(c => c.ID).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_ID_VAZIO);
         }
         public void ValidateNome()
         {
-            RuleFor(c => c.Nome).NotNull().WithMessage("Nome deve ser informado.")
-                                .MinimumLength(3).WithMessage("Pet deve conter ao menos 3 caracteres.")
-                                .MaximumLength(30).WithMessage("Pet não pode conter mais de 30 caracteres.");
+            RuleFor(c => c.Nome).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_NOME_VAZIO)
+                                .MinimumLength(3).WithMessage(ClienteConstants.MENSAGEM_ERRO_NOME_CURTO)
+                                .MaximumLength(30).WithMessage(ClienteConstants.MENSAGEM_ERRO_NOME_GRANDE);
         }
         public void ValidateCPF()
         {
-            RuleFor(c => c.CPF).NotNull().WithMessage("CPF deve ser informado.")
-                               .MinimumLength(3).WithMessage("CPF deve conter ao menos 3 caracteres.")
-                               .MaximumLength(20).WithMessage("CPF não pode conter mais de 20 caracteres.")
-                               .IsCpfValid().WithMessage("CPF inválido");
+            RuleFor(c => c.CPF).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_CPF_VAZIO)
+                               .IsCpfValid().WithMessage(GenericConstants.MENSAGEM_ERRO_CPF_INVÁLIDO);
         }
 
         public void ValidateEmail()
         {
-            RuleFor(c => c.Email).NotNull().WithMessage("Email deve ser informado")
-                                 .MinimumLength(3).WithMessage("Email deve conter ao menos 3 caracteres.")
-                                 .MaximumLength(20).WithMessage("Email não pode conter mais de 20 caracteres.")
-                                 .EmailAddress().WithMessage("Email inválido");
+            RuleFor(c => c.Email).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_EMAIL_VAZIO)
+                                 .MinimumLength(10).WithMessage(GenericConstants.MENSGAEM_ERRO_EMAIL_CURTO)
+                                 .MaximumLength(100).WithMessage(GenericConstants.MENSGAEM_ERRO_EMAIL_GRANDE)
+                                 .EmailAddress().WithMessage(GenericConstants.MENSAGEM_ERRO_EMAIL_INVALIDO);
         }
     }
 }

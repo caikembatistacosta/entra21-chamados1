@@ -29,14 +29,18 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
 
         public async Task<Response> Update(Cliente cliente)
         {
-            _db.Clientes.Update(cliente);
-
+            var clienteConsultado = await _db.Clientes.FindAsync(cliente.ID);
+            if(clienteConsultado == null)
+            {
+                return ResponseFactory.CreateFailureResponse();
+            }
+            _db.Entry(clienteConsultado).CurrentValues.SetValues(cliente);
             try
             {
                 await _db.SaveChangesAsync();
@@ -44,13 +48,13 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
 
         public async Task<Response> Delete(Cliente cliente)
         {
-            _db.Clientes.Update(cliente);
+            _db.Clientes.Remove(cliente);
 
             try
             {
@@ -59,7 +63,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
         public async Task<DataResponse<Cliente>> GetAll()
@@ -79,7 +83,7 @@ namespace DAO.Impl
         {
             try
             {
-                Cliente item = await _db.Clientes.FindAsync(id);
+                var item = await _db.Clientes.FindAsync(id);
                 return SingleResponseFactory<Cliente>.CreateSuccessSingleResponse(item);
             }
             catch (Exception ex)

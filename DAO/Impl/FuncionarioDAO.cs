@@ -28,7 +28,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
 
@@ -42,7 +42,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
         public async Task<Response> Delete(Funcionario funcionario)
@@ -55,7 +55,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
 

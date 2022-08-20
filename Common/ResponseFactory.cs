@@ -16,7 +16,7 @@ namespace Common
                 Message = "Operação realizada com sucesso"
             };
         }
-        public static Response CreateFailureResponse(Exception ex)
+        public static Response CreateFailureResponseWithEx(Exception ex)
         {
             return new Response()
             {
@@ -25,5 +25,14 @@ namespace Common
                 Exception = ex
             };
         }
+        public static Response CreateFailureResponse()
+        {
+            return new Response()
+            {
+                HasSuccess = false,
+                Message = "Operação falhou",
+            };
+        }
+
     }
 }

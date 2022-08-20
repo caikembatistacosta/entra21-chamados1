@@ -44,7 +44,13 @@ namespace BLL.Impl
        
         public async Task<Response> Update(Cliente cliente)
         {
-            Response response = new ClienteUpdateValidator().Validate(cliente).ConvertToResponse();
+            SingleResponse<Cliente> singleResponse = await clienteDao.GetById(cliente.ID);
+            if(cliente == null)
+            {
+                return singleResponse;
+            }
+            
+            Response response = new ClienteUpdateValidator().Validate(singleResponse.Item).ConvertToResponse();
             if (!response.HasSuccess)
             {
                 return response;
@@ -61,9 +67,9 @@ namespace BLL.Impl
         {
             return await clienteDao.GetAll();
         }
-        public Task<SingleResponse<Cliente>> GetById(int id)
+        public async Task<SingleResponse<Cliente>> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await clienteDao.GetById(id);
         }
         //No mundo real, poderia estar sendo trabalhado a politica de cache do pet!
 
