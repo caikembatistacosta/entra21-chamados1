@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
 
-namespace BLL.Validators.Cliente
+namespace BLL.Validators.ComonsValidators
 {
     internal static class CpfValidator
     {
-        public static IRuleBuilderOptions<Entities.Cliente, string> IsCpfValid(this IRuleBuilder<Entities.Cliente, string> param)
+        public static IRuleBuilderOptions<Cliente, string> IsCpfValid(this IRuleBuilder<Cliente, string> param)
         {
             return param.Must(c => ValidateCpf(c));
         }

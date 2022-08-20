@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public class DataResponseFactory
+    public class DataResponseFactory<T>
     {
-        public DataResponse<T> CreateSuccessDataResponse<T>(List<T> itens)
+        public static DataResponse<T> CreateSuccessDataResponse(List<T> itens)
         {
             return new DataResponse<T>()
             {
@@ -17,7 +17,7 @@ namespace Common
                 Data = itens,
             };
         }
-        public DataResponse<T> CreateFailureDataResponse<T>(Exception ex)
+        public static DataResponse<T> CreateFailureDataResponse(Exception ex)
         {
             return new DataResponse<T>()
             {

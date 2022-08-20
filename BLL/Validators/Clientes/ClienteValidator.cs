@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
+using BLL.Validators.ComonsValidators;
 
-namespace BLL.Validators.Cliente
+namespace BLL.Validators.Clientes
 {
-    internal class ClienteValidator : AbstractValidator<Entities.Cliente>
+    internal class ClienteValidator : AbstractValidator<Cliente>
     {
         public void ValidateID()
         {

@@ -10,7 +10,10 @@ namespace BLL.Interfaces
 {
     public interface IClienteService
     {
-        Task<Response> Insert(Cliente c);
+        Task<Response> Insert(Cliente cliente);
+        Task<Response> Update(Cliente cliente);
+        Task<Response> Delete(Cliente cliente);
         Task<DataResponse<Cliente>> GetAll();
+        Task<SingleResponse<Cliente>> GetById(int id);
     }
 }

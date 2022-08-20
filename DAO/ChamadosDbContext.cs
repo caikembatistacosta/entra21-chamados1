@@ -13,6 +13,10 @@ namespace DAO
         //SQL para a tabela PET mexendo nessa propriedade.
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Chamado> Chamados { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Estado> Estados { get; set; }
 
 
         public ChamadosDbContext(DbContextOptions<ChamadosDbContext> ctx) : base(ctx)

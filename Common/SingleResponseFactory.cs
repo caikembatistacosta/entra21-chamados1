@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public class SingleResponseFactory
+    public class SingleResponseFactory<T>
     {
-        public static SingleResponse<T> CreateSuccessSingleResponse<T>(T item)
+        public static SingleResponse<T> CreateSuccessSingleResponse(T item)
         {
             return new SingleResponse<T>()
             {
@@ -17,7 +17,7 @@ namespace Common
                 Item = item,
             };
         }
-        public static SingleResponse<T> CreateFailureSingleResponse<T>(Exception ex)
+        public static SingleResponse<T> CreateFailureSingleResponse(Exception ex)
         {
             return new SingleResponse<T>()
             {

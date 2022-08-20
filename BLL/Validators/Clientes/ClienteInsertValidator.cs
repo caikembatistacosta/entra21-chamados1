@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Validators.Cliente
+namespace BLL.Validators.Clientes
 {
-    internal class ClienteInsertValidator:ClienteValidator
+    internal class ClienteInsertValidator : ClienteValidator
     {
         public ClienteInsertValidator()
         {

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Enums
 {
-    public enum TipoPet
+    public enum NivelDeAcesso
     {
-        Selecione_uma_opção,
-        Cachorro,
-        Gato,
-        Iguana
+        Administrador,
+        Funcionario
     }
 }

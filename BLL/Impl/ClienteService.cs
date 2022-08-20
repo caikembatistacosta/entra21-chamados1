@@ -1,6 +1,6 @@
 ﻿using BLL.Extensions;
 using BLL.Interfaces;
-using BLL.Validators.Cliente;
+using BLL.Validators.Clientes;
 using Common;
 using DAO.Impl;
 using DAO.Interfaces;
@@ -23,11 +23,6 @@ namespace BLL.Impl
         {
             this.clienteDao = clienteDao;
         }
-        public async Task<DataResponse<Cliente>> GetAll()
-        {
-            return await clienteDao.GetAll();
-        }
-        //No mundo real, poderia estar sendo trabalhado a politica de cache do pet!
         public async Task<Response> Insert(Cliente c)
         {
             Response response = new ClienteInsertValidator().Validate(c).ConvertToResponse();
@@ -46,5 +41,31 @@ namespace BLL.Impl
             response = await clienteDao.Insert(c);
             return response;
         }
+       
+        public async Task<Response> Update(Cliente cliente)
+        {
+            Response response = new ClienteUpdateValidator().Validate(cliente).ConvertToResponse();
+            if (!response.HasSuccess)
+            {
+                return response;
+            }
+            response = await clienteDao.Update(cliente);
+            return response;
+        }
+
+        public Task<Response> Delete(Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+        public async Task<DataResponse<Cliente>> GetAll()
+        {
+            return await clienteDao.GetAll();
+        }
+        public Task<SingleResponse<Cliente>> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+        //No mundo real, poderia estar sendo trabalhado a politica de cache do pet!
+
     }
 }

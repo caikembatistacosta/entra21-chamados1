@@ -16,12 +16,13 @@ namespace Common
                 Message = "Operação realizada com sucesso"
             };
         }
-        public static Response CreateFailureResponse()
+        public static Response CreateFailureResponse(Exception ex)
         {
             return new Response()
             {
                 HasSuccess = false,
                 Message = "Operação falhou",
+                Exception = ex
             };
         }
     }

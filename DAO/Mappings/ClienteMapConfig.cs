@@ -14,11 +14,10 @@ namespace DAO.Mappings
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
             builder.ToTable("CLIENTES");
-
-            builder.Property(p => p.Nome).IsRequired().HasMaxLength(100).IsUnicode(false);
+            builder.Property(p => p.Nome).IsRequired().HasMaxLength(50).IsUnicode(false);
             builder.Property(p => p.Email).IsRequired().HasMaxLength(100).IsUnicode(false);
             builder.Property(p => p.CPF).IsFixedLength().HasMaxLength(11).IsUnicode(false);
-            builder.Property(p => p.DataNascimento).IsRequired().HasColumnType("date");
+            builder.Property(p => p.DataNascimento).IsRequired().HasColumnType("datetime2");
         }
     }
 }

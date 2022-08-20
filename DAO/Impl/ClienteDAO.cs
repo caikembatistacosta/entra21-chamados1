@@ -1,6 +1,7 @@
 ﻿using Common;
 using DAO.Interfaces;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,48 +18,73 @@ namespace DAO.Impl
             this._db = db;
         }
 
-        public async Task<DataResponse<Cliente>> GetAll()
-        {
-            DataResponse<Cliente> response = new DataResponse<Cliente>();
-
-            try
-            {
-                List<Cliente> clientes = _db.Clientes.Where(c => c.EstaAtivo).ToList();
-                response.HasSuccess = true;
-                response.Message = "Clientes selecionados com sucesso!";
-                response.Data = clientes;
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.HasSuccess = false;
-                response.Message = "Erro no banco, contate o administrador.";
-                response.Exception = ex;
-                return response;
-            }
-        }
-
         public async Task<Response> Insert(Cliente cliente)
         {
             _db.Clientes.Add(cliente);
 
             try
             {
-                _db.SaveChanges();
-                return new Response()
-                {
-                    HasSuccess = true,
-                    Message = "Cliente cadastrado com sucesso."
-                };
+                await _db.SaveChangesAsync();
+                return ResponseFactory.CreateSuccessResponse();
             }
             catch (Exception ex)
             {
-                return new Response()
-                {
-                    HasSuccess = false,
-                    Message = "Erro no banco de dados, contate o daministrador",
-                    Exception = ex
-                };
+                return ResponseFactory.CreateFailureResponse(ex);
+            }
+        }
+
+        public async Task<Response> Update(Cliente cliente)
+        {
+            _db.Clientes.Update(cliente);
+
+            try
+            {
+                await _db.SaveChangesAsync();
+                return ResponseFactory.CreateSuccessResponse();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.CreateFailureResponse(ex);
+            }
+        }
+
+        public async Task<Response> Delete(Cliente cliente)
+        {
+            _db.Clientes.Update(cliente);
+
+            try
+            {
+                await _db.SaveChangesAsync();
+                return ResponseFactory.CreateSuccessResponse();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.CreateFailureResponse(ex);
+            }
+        }
+        public async Task<DataResponse<Cliente>> GetAll()
+        {
+            try
+            {
+                List<Cliente> clientes = await _db.Clientes.ToListAsync();
+                return DataResponseFactory<Cliente>.CreateSuccessDataResponse(clientes);
+
+            }
+            catch (Exception ex)
+            {
+                return DataResponseFactory<Cliente>.CreateFailureDataResponse(ex);
+            }
+        }
+        public async Task<SingleResponse<Cliente>> GetById(int id)
+        {
+            try
+            {
+                Cliente item = await _db.Clientes.FindAsync(id);
+                return SingleResponseFactory<Cliente>.CreateSuccessSingleResponse(item);
+            }
+            catch (Exception ex)
+            {
+                return SingleResponseFactory<Cliente>.CreateFailureSingleResponse(ex);
             }
         }
     }

@@ -11,9 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ChamadosDbContext>(options => options.UseSqlServer("name=ConnectionStrings:ChamadoDB"));
+builder.Services.AddDbContext<ChamadosDbContext>(options => options.UseSqlServer("name=ConnectionStrings:CasaDavi"));
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
+builder.Services.AddTransient<IFuncionarioDAO, FuncionarioDAO>();
+builder.Services.AddTransient<IFuncionarioService, FuncionarioService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
