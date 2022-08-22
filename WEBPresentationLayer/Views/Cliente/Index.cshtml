@@ -44,10 +44,8 @@
                     @Html.DisplayFor(modelItem => item.DataNascimento)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                @Html.ActionLink("Editar", "Edit", new { id=item.ID  })
+                @Html.ActionLink("Excluir", "Delete", new { id=item.ID  })
                 </td>
             </tr>
         }

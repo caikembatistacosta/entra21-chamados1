@@ -54,12 +54,18 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Edit(int id = 0)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == 0)
-                return View(new Cliente());
-            else
-                return View(_clientesvc.GetById(id));
+            SingleResponse<Cliente> responseCliente = await _clientesvc.GetById(id);
+            if (!responseCliente.HasSuccess)
+            {
+                
+                return RedirectToAction("Index");
+            }
+            Cliente cliente = responseCliente.Item;
+            ClienteUpdateViewModel updateViewModel = _mapper.Map<ClienteUpdateViewModel>(cliente);
+            return View(updateViewModel);
+
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
@@ -71,7 +77,7 @@ namespace MVCPresentationLayer.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Errors = response.Message;
-            return View();
+            return View(cliente);
         }
 
         public IActionResult Delete()

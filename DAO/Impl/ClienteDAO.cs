@@ -35,12 +35,7 @@ namespace DAO.Impl
 
         public async Task<Response> Update(Cliente cliente)
         {
-            var clienteConsultado = await _db.Clientes.FindAsync(cliente.ID);
-            if(clienteConsultado == null)
-            {
-                return ResponseFactory.CreateFailureResponse();
-            }
-            _db.Entry(clienteConsultado).CurrentValues.SetValues(cliente);
+            _db.Entry<Cliente>(cliente).State = EntityState.Modified;
             try
             {
                 await _db.SaveChangesAsync();

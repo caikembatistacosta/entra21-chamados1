@@ -10,7 +10,8 @@ namespace WEBPresentationLayer.Profile.Clientes
             CreateMap<ClienteInsertViewModel, Cliente>();
             CreateMap<ClienteSelectViewModel, Cliente>();
             CreateMap<Cliente, ClienteSelectViewModel>();
-            CreateMap<Cliente, ClienteUpdateViewModel>();
+            CreateMap<Cliente, ClienteUpdateViewModel> ();
+            CreateMap<ClienteUpdateViewModel, Cliente > ();
         }
     }
 }

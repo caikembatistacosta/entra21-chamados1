@@ -1,17 +1,22 @@
 ﻿@model WEBPresentationLayer.Models.Cliente.ClienteUpdateViewModel
 
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Edit";
 }
 
 <h1>Edit</h1>
 
-<h4>Update</h4>
+<h4>ClienteUpdateViewModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
@@ -32,14 +37,17 @@
                 <input asp-for="DataNascimento" class="form-control" />
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <select>
-                    <option value="ativo">Ativo</option>
-                    <option value="desativado">Desativado</option>
-                    <span asp-validation-for="IsAtivo" class="text-danger"></span>
-
-                </select>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAtivo" /> @Html.DisplayNameFor(model => model.IsAtivo)
+                </label>
             </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
             @if (ViewBag.Errors != null)
             {
                 <div class="form-group">
@@ -48,19 +56,10 @@
                     </p>
                 </div>
             }
-            <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
