@@ -30,7 +30,7 @@ namespace MVCPresentationLayer.Controllers
             }
 
 
-            List<ClienteSelectViewModel> clientes = _mapper.Map<List<ClienteSelectViewModel>>(responseClientes.Data);
+            List<ChamadoSelectViewModel> clientes = _mapper.Map<List<ChamadoSelectViewModel>>(responseClientes.Data);
             return View(clientes);
         }
         [HttpGet]
@@ -40,7 +40,7 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(ClienteInsertViewModel viewModel)
+        public async Task<IActionResult> Create(ChamadoInsertViewModel viewModel)
         {
 
             Cliente cliente = _mapper.Map<Cliente>(viewModel);

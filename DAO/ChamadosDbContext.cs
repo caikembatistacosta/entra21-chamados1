@@ -17,18 +17,16 @@ namespace DAO
         public DbSet<Chamado> Chamados { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Estado> Estados { get; set; }
-
-
         public ChamadosDbContext(DbContextOptions<ChamadosDbContext> ctx) : base(ctx)
         {
 
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Assembly no contexto do .NET
             //Carrega os map config que tão criado dentro do projeto (assembly) DAO 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
             base.OnModelCreating(modelBuilder);
         }
 

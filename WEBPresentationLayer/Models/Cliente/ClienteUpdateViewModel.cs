@@ -7,15 +7,12 @@ namespace WEBPresentationLayer.Models.Cliente
         [Required(ErrorMessage = "O nome deve ser informado.")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "O nome deve conter entre 3 e 30 caracteres.")]
         public string Nome { get; set; }
-        [Required(ErrorMessage = "A CPF deve ser informada.")]
-        [Display(Name = "CPF")]
-        public string CPF { get; set; }
-        [Required(ErrorMessage = "A CPF deve ser informada.")]
+
+
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime DataNascimento { get; set; }
+
         public bool IsAtivo { get; set; }
     }
 }

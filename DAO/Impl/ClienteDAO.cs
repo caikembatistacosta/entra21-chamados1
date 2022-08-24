@@ -35,9 +35,16 @@ namespace DAO.Impl
 
         public async Task<Response> Update(Cliente cliente)
         {
-            _db.Entry<Cliente>(cliente).State = EntityState.Modified;
+            Cliente clienteDB = await _db.Clientes.FindAsync(cliente.ID);
+            clienteDB.Nome = cliente.Nome;
+            clienteDB.Email = cliente.Email;
+
+
+            
             try
             {
+                
+
                 await _db.SaveChangesAsync();
                 return ResponseFactory.CreateSuccessResponse();
             }

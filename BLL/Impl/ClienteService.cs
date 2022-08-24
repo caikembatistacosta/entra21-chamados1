@@ -45,18 +45,20 @@ namespace BLL.Impl
         public async Task<Response> Update(Cliente cliente)
         {
             SingleResponse<Cliente> singleResponse = await clienteDao.GetById(cliente.ID);
+
             if(cliente == null)
             {
                 return singleResponse;
             }
             
-            Response response = new ClienteUpdateValidator().Validate(singleResponse.Item).ConvertToResponse();
+            Response response = new ClienteUpdateValidator().Validate(cliente).ConvertToResponse();
             if (!response.HasSuccess)
             {
                 return response;
             }
+
             response = await clienteDao.Update(cliente);
-            return response;
+             return response;
         }
 
         public Task<Response> Delete(Cliente cliente)

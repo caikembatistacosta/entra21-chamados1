@@ -10,7 +10,9 @@ namespace BLL.Validators.Chamados
     {
         public ChamadoInsertValidator()
         {
-
+            base.ValidateNome();
+            base.ValidateDescricaoCurta();
+            base.ValidateDescricaoDetalhada();
         }
     }
 }

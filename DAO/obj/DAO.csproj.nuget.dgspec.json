@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\DAO\\DAO.csproj": {}
+    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\DAO\\DAO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,18 +55,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\DAO\\DAO.csproj": {
+    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\DAO\\DAO.csproj",
+        "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\DAO\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\DAO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,11 +83,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj"
               },
-              "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\Entities.csproj"
               }
             }
           }
@@ -118,7 +119,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -127,18 +129,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Desktop\\c\\entra21-chamados1\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -172,7 +174,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -181,7 +184,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

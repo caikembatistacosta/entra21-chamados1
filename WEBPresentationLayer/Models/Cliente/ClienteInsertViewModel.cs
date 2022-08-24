@@ -2,7 +2,7 @@
 
 namespace WEBPresentationLayer.Models.Cliente
 {
-    public class ClienteInsertViewModel
+    public class ChamadoInsertViewModel
     {
         [Required(ErrorMessage = "O nome deve ser informado.")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "O nome deve conter entre 3 e 30 caracteres.")]

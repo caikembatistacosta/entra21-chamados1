@@ -27,5 +27,13 @@ namespace Common
             };
 
         }
+        public static SingleResponse<T> CreateFaiulureSingleResponse()
+        {
+            return new SingleResponse<T>()
+            {
+                HasSuccess = false,
+                Message = "Operação falhou",
+            };
+        }
     }
 }
