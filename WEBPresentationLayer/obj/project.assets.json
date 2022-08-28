@@ -9783,19 +9783,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\entra21\\.nuget\\packages\\": {}
+    "C:\\Users\\diego\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
       "projectName": "WEBPresentationLayer",
-      "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
-      "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\WEBPresentationLayer\\obj\\",
+      "projectPath": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+      "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\WEBPresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9809,8 +9809,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\BLL\\BLL.csproj"
+            "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\BLL\\BLL.csproj"
             }
           }
         }
@@ -9854,8 +9854,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -9867,7 +9866,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

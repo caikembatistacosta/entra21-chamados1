@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj": {}
+    "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj": {
+    "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Downloads\\entra21-chamados1\\Common\\obj\\",
+        "projectPath": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\diego\\OneDrive\\Documentos\\teste\\entra21-chamados1\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,8 +45,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -55,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
