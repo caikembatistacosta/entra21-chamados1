@@ -11,6 +11,7 @@ namespace BLL.Validators.Funcionarios
         public FuncUpdateValidator()
         {
 
+
         }
     }
 }

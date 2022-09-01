@@ -10,7 +10,15 @@ namespace BLL.Validators.Funcionarios
     {
         public FuncInsertValidator()
         {
-
+            base.ValidateNome();
+            base.ValidateCPF();
+            base.ValidateRG();
+            base.ValidateEmail();
+            base.ValidateUsername();
+            base.ValidateSenha();
+            base.ValidateDataNascimento();
+            base.ValidateIdade();
+            
         }
     }
 }

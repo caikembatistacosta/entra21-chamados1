@@ -10,14 +10,23 @@ namespace Entities
     {
         public string CPF { get; set; }
         public string RG { get; set; }
-        public PessoaFisica(string cPF, string rG)
+
+        public DateTime DataNascimento { get; set; }
+        public int Idade
         {
-            CPF = cPF;
-            RG = rG;
-        }
-        public PessoaFisica()
-        {
+            get
+            {
+                DateTime today = DateTime.Today;
+                int age = today.Year - DataNascimento.Year;
+                if (DataNascimento.Date > today.AddYears(-age))
+                {
+                    age--;
+                }
+                return age;
+
+            }
 
         }
+        
     }
 }
