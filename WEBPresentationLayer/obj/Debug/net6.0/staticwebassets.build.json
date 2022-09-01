@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J0Y12XxbE+kQghyxJViM14pjOCCt8iclFNaIwip8Eb4=",
+  "Hash": "g+Otph0pqTxLNrVPtPpYrRyzogACBGI6A+nuba4sLPk=",
   "Source": "WEBPresentationLayer",
   "BasePath": "_content/WEBPresentationLayer",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\header-bg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\wwwroot\\assets\\img\\header-bg1.jpg",
+      "SourceId": "WEBPresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\wwwroot\\",
+      "BasePath": "_content/WEBPresentationLayer",
+      "RelativePath": "assets/img/header-bg1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\header-bg1.jpg"
     },
     {
       "Identity": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\wwwroot\\assets\\img\\logos\\facebook.svg",
