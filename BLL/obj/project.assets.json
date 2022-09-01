@@ -1858,11 +1858,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1879,14 +1879,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
             },
-            "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj"
             },
-            "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
             }
           }
         }
@@ -1912,8 +1912,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -1922,7 +1921,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

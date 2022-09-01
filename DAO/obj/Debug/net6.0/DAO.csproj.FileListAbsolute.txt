@@ -146,7 +146,7 @@ C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\DAO.csproj.CoreCompileInputs.cache
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\DAO.csproj.CopyComplete
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\DAO.dll
-C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\refint\DAO.dll
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\DAO.pdb
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\DAO.genruntimeconfig.cache
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\DAO\obj\Debug\net6.0\ref\DAO.dll
+C:\Users\entra21\source\repos\caikembatistacosta\entra21-chamados1\DAO\bin\Debug\net6.0\ref\DAO.dll

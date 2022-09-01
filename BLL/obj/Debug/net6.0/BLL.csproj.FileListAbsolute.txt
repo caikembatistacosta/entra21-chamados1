@@ -147,6 +147,6 @@ C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.csproj.CoreCompileInputs.cache
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.csproj.CopyComplete
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.dll
-C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\refint\BLL.dll
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.pdb
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\ref\BLL.dll
+C:\Users\entra21\source\repos\caikembatistacosta\entra21-chamados1\BLL\bin\Debug\net6.0\ref\BLL.dll
