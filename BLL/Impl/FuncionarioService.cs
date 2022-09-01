@@ -61,6 +61,9 @@ namespace BLL.Impl
             return await _funcionarioDAO.GetById(id);
         }
 
-
+        public async Task<SingleResponse<Funcionario>> GetLogin(Funcionario funcionario)
+        {
+            return await _funcionarioDAO.GetLogin(funcionario);
+        }
     }
 }

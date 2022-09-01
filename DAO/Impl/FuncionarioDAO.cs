@@ -86,6 +86,21 @@ namespace DAO.Impl
             }
         }
 
-     
+        public async Task<SingleResponse<Funcionario>> GetLogin(Funcionario funcionario)
+        {
+            try
+            {
+                Funcionario? funcionario1 = await _db.Funcionarios.FirstOrDefaultAsync(f => f.Email == funcionario.Email && f.Senha == funcionario.Senha);
+                if (funcionario1 == null)
+                {
+                    return SingleResponseFactory<Funcionario>.CreateFaiulureSingleResponse();
+                }
+                return SingleResponseFactory<Funcionario>.CreateSuccessSingleResponse(funcionario1);
+            }
+            catch (Exception ex)
+            {
+                return SingleResponseFactory<Funcionario>.CreateFailureSingleResponse(ex);
+            }
+        }
     }
 }
