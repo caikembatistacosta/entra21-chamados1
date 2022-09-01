@@ -1937,3 +1937,15 @@ C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\WEBPresentationLayer\
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.pdb
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.genruntimeconfig.cache
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\ref\WEBPresentationLayer.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.csproj.AssemblyReference.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.AssemblyInfoInputs.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.AssemblyInfo.cs
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.RazorAssemblyInfo.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.RazorAssemblyInfo.cs
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\refint\WEBPresentationLayer.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\WEBPresentationLayer\obj\Debug\net6.0\WEBPresentationLayer.pdb

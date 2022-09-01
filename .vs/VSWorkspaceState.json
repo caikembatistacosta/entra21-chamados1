@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BLL",
+    "\\DAO",
+    "\\DAO\\Impl",
+    "\\WEBPresentationLayer",
+    "\\WEBPresentationLayer\\Views",
+    "\\WEBPresentationLayer\\Views\\Home"
+  ],
+  "SelectedNode": "\\DAO\\Impl\\FuncionarioDAO.cs",
+  "PreviewInSolutionExplorer": false
+}

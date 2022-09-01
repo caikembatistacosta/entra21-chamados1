@@ -131,3 +131,11 @@ C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\BLL\obj\Debug\net6.0\
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\BLL\obj\Debug\net6.0\refint\BLL.dll
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.pdb
 C:\Users\diego\OneDrive\Documentos\teste\entra21-chamados1\BLL\obj\Debug\net6.0\ref\BLL.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.csproj.AssemblyReference.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.AssemblyInfoInputs.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.AssemblyInfo.cs
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\refint\BLL.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\BLL\obj\Debug\net6.0\BLL.pdb
