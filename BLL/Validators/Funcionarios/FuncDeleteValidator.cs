@@ -10,6 +10,7 @@ namespace BLL.Validators.Funcionarios
     {
         public FuncDeleteValidator()
         {
+            base.ValidateID();
 
         }
     }

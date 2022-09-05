@@ -19,7 +19,7 @@ namespace BLL.Constants
         public const string MENSAGEM_ERRO_RG_INVÁLIDO = "RG inválido!.";
         public const string MENSAGEM_ERRO_RG_VAZIO = "RG deve ser informado!.";
         public const string MENSAGEM_ERRO_DATANASCIMENTO_VAZIO = "Data de Nascimento deve ser informada";
-        public const string MENSAGEM_ERRO_IDADE_INVALIDA = "Idade não corresponde!";
+        public const string MENSAGEM_ERRO_IDADE_INVALIDA = "Idade Invalida!";
 
 
     }

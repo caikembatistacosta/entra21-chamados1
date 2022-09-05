@@ -19,15 +19,14 @@ namespace BLL.Validators.Funcionarios
         public void ValidateNome()
         {
             RuleFor(c => c.Nome).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_NOME_VAZIO)
-                               .MinimumLength(3).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_CURTO)
-                               .MaximumLength(30).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_GRANDE);
+                                .MinimumLength(3).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_CURTO)
+                                .MaximumLength(30).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_GRANDE);
+
+            RuleFor(c => c.Sobrenome).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_NOME_VAZIO)
+                                     .MinimumLength(3).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_CURTO)
+                                     .MaximumLength(30).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_NOME_GRANDE);
         }
-        public void ValidateUsername()
-        {
-            RuleFor(c => c.Username).NotNull().WithMessage(FuncionariosConstants.MENSAGEM_ERRO_USERNAME_VAZIO)
-                                    .MinimumLength(3).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_USERNAME_CURTO)
-                                    .MaximumLength(30).WithMessage(FuncionariosConstants.MENSAGEM_ERRO_USERNAME_GRANDE);
-        }
+        
         public void ValidateSenha()
         {
             RuleFor(c => c.Senha).NotNull().WithMessage(FuncionariosConstants.MENSAGEM_ERRO_SENHA_VAZIO)

@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\BLL",
+    "\\BLL\\Validators",
+    "\\BLL\\Validators\\Clientes",
+    "\\BLL\\Validators\\Funcionarios",
     "\\DAO",
     "\\DAO\\Impl",
     "\\WEBPresentationLayer",
     "\\WEBPresentationLayer\\Views",
     "\\WEBPresentationLayer\\Views\\Home"
   ],
-  "SelectedNode": "\\DAO\\Impl\\FuncionarioDAO.cs",
+  "SelectedNode": "\\Chamados.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -14,11 +14,10 @@ namespace BLL.Validators.Funcionarios
             base.ValidateCPF();
             base.ValidateRG();
             base.ValidateEmail();
-            base.ValidateUsername();
             base.ValidateSenha();
             base.ValidateDataNascimento();
             base.ValidateIdade();
-            
+                      
         }
     }
 }

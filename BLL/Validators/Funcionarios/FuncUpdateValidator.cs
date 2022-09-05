@@ -10,7 +10,11 @@ namespace BLL.Validators.Funcionarios
     {
         public FuncUpdateValidator()
         {
-
+            base.ValidateNome();
+            base.ValidateEmail();
+            base.ValidateSenha();
+            base.ValidateDataNascimento();
+            base.ValidateIdade();
 
         }
     }
