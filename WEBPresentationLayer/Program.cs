@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ChamadosDbContext>(options => { 
-    options.UseSqlServer("name=ConnectionStrings:CasaJoao");
+    options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
     options.EnableSensitiveDataLogging();
     }) ;
 builder.Services.AddTransient<IClienteService, ClienteService>();
