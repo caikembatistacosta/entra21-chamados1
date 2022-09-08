@@ -77,7 +77,7 @@ namespace DAO.Impl
         {
             try
             {
-                Funcionario item = await _db.Funcionarios.FindAsync(id);
+                Funcionario? item = await _db.Funcionarios.FindAsync(id);
                 return SingleResponseFactory<Funcionario>.CreateSuccessSingleResponse(item);
             }
             catch (Exception ex)
@@ -90,7 +90,8 @@ namespace DAO.Impl
         {
             try
             {
-                Funcionario? funcionario1 = await _db.Funcionarios.FirstOrDefaultAsync(f => f.Email == funcionario.Email && f.Senha == funcionario.Senha);
+                Funcionario? funcionario1 = await _db.Funcionarios.FirstOrDefaultAsync(f => f.Email == funcionario.Email    
+                                                                                         && f.Senha == funcionario.Senha);
                 if (funcionario1 == null)
                 {
                     return SingleResponseFactory<Funcionario>.CreateFaiulureSingleResponse();

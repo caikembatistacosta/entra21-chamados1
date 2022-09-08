@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAO.Migrations
 {
     [DbContext(typeof(ChamadosDbContext))]
-    [Migration("20220820020508_MoreEntities")]
-    partial class MoreEntities
+    [Migration("20220908192541_newMigratio")]
+    partial class newMigratio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,11 @@ namespace DAO.Migrations
 
             modelBuilder.Entity("Entities.Chamado", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<DateTime>("DataFim")
                         .HasColumnType("datetime2");
@@ -50,19 +50,13 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("ImagemUrl")
-                        .IsRequired()
-                        .HasMaxLength(2048)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(2048)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("CHAMADOS", (string)null);
                 });

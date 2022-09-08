@@ -3,6 +3,7 @@ using BLL.Interfaces;
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WEBPresentationLayer.Models.Chamado;
 
 namespace WEBPresentationLayer.Controllers
@@ -37,17 +38,15 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ChamadoInsertViewModel viewModel)
         {
+            HttpClient client = new HttpClient();
+            string data = JsonConvert.SerializeObject(viewModel);
+            StringContent content = new StringContent(data);
 
-            Chamado chamado = _mapper.Map<Chamado>(viewModel);
+            HttpResponseMessage message = await client.PostAsync("localhost:5000/Chamado/InsertChamado", content);
+            return View(message);
+            
 
-            Response response = await _chamadosvc.Insert(chamado);
-
-            if (response.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            ViewBag.Errors = response.Message;
-            return View();
+           
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
@@ -76,12 +75,8 @@ namespace WEBPresentationLayer.Controllers
         }
         public async Task<IActionResult> Details(int id)
         {
-            SingleResponse<Chamado> single = await _chamadosvc.GetById(id);
-            if (!single.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            Chamado chamado = single.Item;
+
+            var chamado = new Chamado();
             ChamadoDetailsViewModel viewModel = _mapper.Map<ChamadoDetailsViewModel>(chamado);
             return View(viewModel);
         }
