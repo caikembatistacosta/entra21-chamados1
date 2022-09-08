@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WEBPresentationLayer",
+    "\\WEBPresentationLayer\\Views",
+    "\\WEBPresentationLayer\\Views\\Home"
   ],
-  "SelectedNode": "\\Chamados.sln",
   "PreviewInSolutionExplorer": false
 }

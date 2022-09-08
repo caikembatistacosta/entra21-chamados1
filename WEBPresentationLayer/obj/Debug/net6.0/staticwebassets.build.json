@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8uI9d7v/cev+bJ5uwZ+Ooe8yt3VBzvPVju5QUVa7AHI=",
+  "Hash": "8DkZqO5kh4BJ4aeuKjnfnnafWhVWj4I65QeluEuCTGw=",
   "Source": "WEBPresentationLayer",
   "BasePath": "_content/WEBPresentationLayer",
   "Mode": "Default",
@@ -289,23 +289,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\navbar-logo.svg"
     },
     {
-      "Identity": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\assets\\img\\portfolio\\1.jpg",
-      "SourceId": "WEBPresentationLayer",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\",
-      "BasePath": "_content/WEBPresentationLayer",
-      "RelativePath": "assets/img/portfolio/1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\img\\portfolio\\1.jpg"
-    },
-    {
       "Identity": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\assets\\img\\portfolio\\2.jpg",
       "SourceId": "WEBPresentationLayer",
       "SourceType": "Discovered",
@@ -389,6 +372,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\portfolio\\6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\assets\\img\\portfolio\\csharp.jpg",
+      "SourceId": "WEBPresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\",
+      "BasePath": "_content/WEBPresentationLayer",
+      "RelativePath": "assets/img/portfolio/csharp.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\portfolio\\csharp.jpg"
     },
     {
       "Identity": "C:\\Users\\entra21\\source\\repos\\aaaaaaa\\WEBPresentationLayer\\wwwroot\\assets\\img\\team\\1.jpg",

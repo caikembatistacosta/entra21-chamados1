@@ -71,7 +71,7 @@ namespace DAO.Impl
         {
             try
             {
-                List<Chamado> chamados = await _db.Chamados.ToListAsync();
+                List<Chamado> chamados = await _db.Chamados.OrderByDescending(c=> c.ID).ToListAsync();
                 return DataResponseFactory<Chamado>.CreateSuccessDataResponse(chamados);
 
             }
