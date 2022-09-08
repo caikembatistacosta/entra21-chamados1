@@ -90,3 +90,7 @@ C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\obj\
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\obj\Debug\net6.0\Entities.dll
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\obj\Debug\net6.0\refint\Entities.dll
 C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\obj\Debug\net6.0\Entities.pdb
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\bin\Debug\net6.0\Entities.deps.json
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\bin\Debug\net6.0\Entities.dll
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\bin\Debug\net6.0\Entities.pdb
+C:\Users\entra21\Source\Repos\caikembatistacosta\entra21-chamados1\Entities\obj\Debug\net6.0\ref\Entities.dll

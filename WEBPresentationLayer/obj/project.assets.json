@@ -9777,6 +9777,8 @@
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "BLL >= 1.0.0",
+      "Common >= 1.0.0",
+      "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.8",
       "Swashbuckle.AspNetCore >= 6.3.0"
@@ -9811,6 +9813,12 @@
           "projectReferences": {
             "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj": {
               "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj"
+            },
+            "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
+            },
+            "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
             }
           }
         }

@@ -58,7 +58,7 @@ namespace BLL.Validators.Funcionarios
         public void ValidateRG()
         {
             RuleFor(c => c.RG).NotNull().WithMessage(GenericConstants.MENSAGEM_ERRO_RG_VAZIO)
-                               .IsRgValid().WithMessage(GenericConstants.MENSAGEM_ERRO_RG_INVÁLIDO);
+                               .WithMessage(GenericConstants.MENSAGEM_ERRO_RG_INVÁLIDO);
         }
 
     }

@@ -193,7 +193,7 @@ namespace DAO.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Cpf")
+                    b.Property<string>("CPF")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
@@ -209,21 +209,24 @@ namespace DAO.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<int>("Genero")
+                        .IsUnicode(false)
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
+                        .IsUnicode(false)
                         .HasColumnType("bit");
 
                     b.Property<int>("NivelDeAcesso")
+                        .IsUnicode(false)
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(30)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(30)");
 
-                    b.Property<string>("Rg")
+                    b.Property<string>("RG")
                         .IsRequired()
                         .HasMaxLength(14)
                         .IsUnicode(false)
@@ -235,13 +238,16 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("Sobrenome")
                         .IsRequired()
-                        .HasMaxLength(20)
+                        .HasMaxLength(30)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CPF")
+                        .IsUnique();
 
                     b.ToTable("FUNCIONARIOS", (string)null);
                 });

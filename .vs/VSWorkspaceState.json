@@ -3,11 +3,12 @@
     "",
     "\\BLL",
     "\\BLL\\Validators",
-    "\\BLL\\Validators\\Clientes",
     "\\BLL\\Validators\\Funcionarios",
     "\\DAO",
     "\\DAO\\Impl",
     "\\WEBPresentationLayer",
+    "\\WEBPresentationLayer\\Models",
+    "\\WEBPresentationLayer\\Models\\Funcionarios",
     "\\WEBPresentationLayer\\Views",
     "\\WEBPresentationLayer\\Views\\Home"
   ],

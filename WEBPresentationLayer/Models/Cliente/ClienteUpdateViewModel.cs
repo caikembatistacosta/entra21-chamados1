@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace WEBPresentationLayer.Models.Cliente
 {
     public class ClienteUpdateViewModel

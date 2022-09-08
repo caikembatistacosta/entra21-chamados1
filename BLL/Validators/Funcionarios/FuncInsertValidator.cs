@@ -12,7 +12,7 @@ namespace BLL.Validators.Funcionarios
         {
             base.ValidateNome();
             base.ValidateCPF();
-            base.ValidateRG();
+
             base.ValidateEmail();
             base.ValidateSenha();
             base.ValidateDataNascimento();

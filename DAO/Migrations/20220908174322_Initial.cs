@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAO.Migrations
 {
-    public partial class InitialBase : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,16 +64,16 @@ namespace DAO.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Username = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    Nome = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    Sobrenome = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
                     Senha = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    Rg = table.Column<string>(type: "varchar(14)", unicode: false, maxLength: 14, nullable: false),
-                    Cpf = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Genero = table.Column<int>(type: "int", nullable: false),
-                    NivelDeAcesso = table.Column<int>(type: "int", nullable: false),
-                    IsAtivo = table.Column<bool>(type: "bit", nullable: false)
+                    Genero = table.Column<int>(type: "int", unicode: false, nullable: false),
+                    NivelDeAcesso = table.Column<int>(type: "int", unicode: false, nullable: false),
+                    IsAtivo = table.Column<bool>(type: "bit", unicode: false, nullable: false),
+                    CPF = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
+                    RG = table.Column<string>(type: "varchar(14)", unicode: false, maxLength: 14, nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,6 +110,12 @@ namespace DAO.Migrations
                 name: "IX_ENDERECOS_EstadoId",
                 table: "ENDERECOS",
                 column: "EstadoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FUNCIONARIOS_CPF",
+                table: "FUNCIONARIOS",
+                column: "CPF",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

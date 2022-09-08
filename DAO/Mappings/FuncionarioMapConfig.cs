@@ -24,6 +24,7 @@ namespace DAO.Mappings
             builder.Property(f => f.Genero).IsRequired().IsUnicode(false);
             builder.Property(f => f.NivelDeAcesso).IsRequired().IsUnicode(false);
             builder.Property(f => f.IsAtivo).IsRequired().IsUnicode(false);
+
         }
     }
 }

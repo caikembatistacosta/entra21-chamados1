@@ -1,9 +1,9 @@
 ﻿using Entities.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace WEBPresentationLayer.Models.Cliente
+namespace WEBPresentationLayer.Models.Funcionarios
 {
-    public class FuncionarioInsertViewModel
+    public class FuncionariosInsertViewModel
     {
         [Required(ErrorMessage = "Nome deve ser informado.")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Nome deve conter entre 3 e 30 caracteres.")]
