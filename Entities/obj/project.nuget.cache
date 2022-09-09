@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UdlvSGSJ0WUnEZ3a+x+JYk3AAppwj607EodOGTpSnEwOaRnr6GSRUCA6rVDXmhMd4hUWogt5RUrgNB3W8B0hjA==",
+  "dgSpecHash": "URCHeTSo1SqKJsnU9lhhF17TZdQl1+JNeZOmRgQsYoiPVsjp0heh48lkdfgBIHzZis2lzbH/KOEhtkVNue0ZVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

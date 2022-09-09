@@ -9,8 +9,9 @@ namespace WEBPresentationLayer.Controllers
     public class LoginController : Controller
     {
         
-        public LoginController( )
+        public LoginController()
         {
+
         }
         
         public IActionResult Index()
@@ -20,12 +21,17 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)
         {
-            //Funcionario funcionario = mapper.Map<Funcionario>(funcionarioLogin);
-            HttpClient httpClient = new();
+            HttpClient httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(@"https://localhost:7234/");
             string data = JsonConvert.SerializeObject(funcionarioLogin);
             StringContent stringContent = new(data);
-            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:7234/Login/Logar", stringContent);
-            return View(message);
+            HttpResponseMessage message = await httpClient.PostAsJsonAsync<FuncionarioLoginViewModel>("Login/Logar", funcionarioLogin);
+            var content = message.Content.ReadAsStringAsync();
+            if (!content.IsCompletedSuccessfully)
+            {
+                return NotFound();
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

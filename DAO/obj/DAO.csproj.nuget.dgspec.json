@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {}
+    "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\DAO\\DAO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {
+    "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj",
+        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\DAO\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\DAO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,11 +83,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Common\\Common.csproj"
               },
-              "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj"
               }
             }
           }
@@ -133,14 +133,14 @@
         }
       }
     },
-    "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",

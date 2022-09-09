@@ -4,8 +4,10 @@ using DAO;
 using DAO.Impl;
 using DAO.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using WEBApi.ApiConfig;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,13 +22,25 @@ builder.Services.AddControllersWithViews();
 byte[] key = Encoding.ASCII.GetBytes(Settings.Secret);
 builder.Services.AddAuthentication(x =>
 {
-    //x.DefaultAuthenticateScheme = JwtBearerDefaults
-});
-  //  .AddJwtBearer
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+   .AddJwtBearer(x =>
+   {
+       x.RequireHttpsMetadata = false;
+       x.SaveToken = true;
+       x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+       {
+           ValidateIssuerSigningKey = true,
+           IssuerSigningKey = new SymmetricSecurityKey(key),
+           ValidateIssuer = false,
+           ValidateAudience = false,
+       };
+   });
 
 
 builder.Services.AddDbContext<ChamadosDbContext>(options => {
-    options.UseSqlServer("name=ConnectionStrings:CasaDavi");
+    options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
 });
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();

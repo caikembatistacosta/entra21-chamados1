@@ -3,10 +3,13 @@ using BLL.Interfaces;
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using WEBApi.ApiConfig;
 using WEBApi.Models.Funcionario;
 
 namespace WEBApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class LoginController : Controller
     {
         private readonly IFuncionarioService funcionarioService;
@@ -21,7 +24,7 @@ namespace WEBApi.Controllers
         {
             return Ok();
         }
-       
+
         [HttpPost("Logar")]
         public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)
         {
@@ -31,7 +34,11 @@ namespace WEBApi.Controllers
             {
                 return BadRequest();
             }
-            return Ok(singleResponse);
+            var token = TokenService.GenerateToken(singleResponse.Item);
+            funcionario.Senha = "";
+
+            return Ok(token);
+
         }
     }
 }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "u54WGIVQddJc81sj4c9KT1QAdQgMYLUKgnXzzpzgwefGJSzY3HpmAr8Qq/yuFuXZrZWlklyDazLwqEtHB5S5iA==",
+  "dgSpecHash": "yANKrXobT8/BfNE63ze1VcAPA2yMKmkh1h1vtMmqDZktMw5QA7OV+BEZwiQTEBKDEm0c8uY90P6VOyjbmIUWJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Source\\Repos\\entra21-chamados\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation\\11.2.0\\fluentvalidation.11.2.0.nupkg.sha512",
+    "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

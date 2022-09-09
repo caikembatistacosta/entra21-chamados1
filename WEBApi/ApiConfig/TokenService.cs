@@ -9,7 +9,7 @@ namespace WEBApi.ApiConfig
 {
     public class TokenService
     {
-        public string GenerateToke(Funcionario funcionario)
+        public static string GenerateToken(Funcionario funcionario)
         {
             JwtSecurityTokenHandler tokenHandler = new();
             byte[] key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -18,6 +18,7 @@ namespace WEBApi.ApiConfig
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Email, funcionario.Email),
+                    //new Claim(ClaimTypes.Role, funcionario.Role)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
