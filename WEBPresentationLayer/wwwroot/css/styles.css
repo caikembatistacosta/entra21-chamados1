@@ -237,8 +237,8 @@ sup {
 }
 
 a {
-  color: #ffc800;
-  text-decoration: underline;
+    color: #800080;
+    text-decoration: underline;
 }
 a:hover {
   color: #cca000;
@@ -3033,8 +3033,8 @@ textarea.form-control-lg {
 
 .btn-primary {
     color: #fff;
-    background-color: #800080;
-    border-color: #800080;
+    background-color: #ffc800;
+    border-color: #ffc800;
 }
     .btn-primary:hover {
         color: #fff;
@@ -11481,7 +11481,7 @@ header.masthead .masthead-heading {
     #portfolio .portfolio-item .portfolio-link .portfolio-hover {
         display: flex;
         position: absolute;
-        width: 100%;
+        width: 82%;
         height: 100%;
         background: rgb(148,0,211);
         align-items: center;
