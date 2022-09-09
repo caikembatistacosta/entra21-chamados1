@@ -19,7 +19,7 @@ namespace WEBApi.Controllers
             this.mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("InsertChamado")]
         public IActionResult InsertChamado()
         {
             return Ok();
@@ -40,7 +40,7 @@ namespace WEBApi.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("UpdateChamado")]
         public async Task<IActionResult> UpdateChamado(int id)
         {
             SingleResponse<Chamado> responseChamado = await _chamadoService.GetById(id);
@@ -54,9 +54,9 @@ namespace WEBApi.Controllers
         }
 
         [HttpPut("UpdateChamado")]
-        public async Task<IActionResult> UpdateChamado(Chamado chamado)
+        public async Task<IActionResult> UpdateChamado(ChamadoUpdateViewModel viewModel)
         {
-            //Chamado chamado = _mapper.Map<Chamado>(viewModel);
+            Chamado chamado = mapper.Map<Chamado>(viewModel);
             Response response = await _chamadoService.Update(chamado);
             if (!response.HasSuccess)
             {

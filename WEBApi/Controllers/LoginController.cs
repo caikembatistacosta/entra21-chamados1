@@ -16,6 +16,11 @@ namespace WEBApi.Controllers
             this.funcionarioService = funcionarioService;
             this.mapper = mapper;
         }
+        [HttpGet("Login")]
+        public IActionResult Login()
+        {
+            return Ok();
+        }
        
         [HttpPost("Logar")]
         public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)

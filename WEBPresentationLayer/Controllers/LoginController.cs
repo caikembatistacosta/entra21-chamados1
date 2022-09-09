@@ -8,11 +8,9 @@ namespace WEBPresentationLayer.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly IMapper mapper;
         
-        public LoginController(IMapper mapper)
+        public LoginController( )
         {
-            this.mapper = mapper;
         }
         
         public IActionResult Index()
@@ -26,7 +24,7 @@ namespace WEBPresentationLayer.Controllers
             HttpClient httpClient = new();
             string data = JsonConvert.SerializeObject(funcionarioLogin);
             StringContent stringContent = new(data);
-            HttpResponseMessage message = await httpClient.PostAsync("localhost:5000/Funcionario/Logar", stringContent);
+            HttpResponseMessage message = await httpClient.PostAsync("http://localhost:7234/Login/Logar", stringContent);
             return View(message);
         }
     }

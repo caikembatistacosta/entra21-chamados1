@@ -4,6 +4,8 @@ using DAO;
 using DAO.Impl;
 using DAO.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using WEBApi.ApiConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +16,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews();
+
+byte[] key = Encoding.ASCII.GetBytes(Settings.Secret);
+builder.Services.AddAuthentication(x =>
+{
+    //x.DefaultAuthenticateScheme = JwtBearerDefaults
+});
+  //  .AddJwtBearer
+
+
 builder.Services.AddDbContext<ChamadosDbContext>(options => {
-    options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
+    options.UseSqlServer("name=ConnectionStrings:CasaDavi");
 });
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
@@ -39,7 +50,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
