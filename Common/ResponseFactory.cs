@@ -33,6 +33,15 @@ namespace Common
                 Message = "Operação falhou",
             };
         }
+        public static Response CreateFailureResponse(Exception ex)
+        {
+            return new Response()
+            {
+                HasSuccess = false,
+                Message = "Operação falhou",
+                Exception = ex
+            };
+        }
 
     }
 }

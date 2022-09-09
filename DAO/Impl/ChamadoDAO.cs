@@ -52,9 +52,9 @@ namespace DAO.Impl
             }
         }
 
-        public async Task<Response> Delete(Cliente cliente)
+        public async Task<Response> Delete(Chamado chamado)
         {
-            _db.Clientes.Remove(cliente);
+            _db.Chamados.Remove(chamado);
 
             try
             {
@@ -80,21 +80,24 @@ namespace DAO.Impl
                 return DataResponseFactory<Chamado>.CreateFailureDataResponse(ex);
             }
         }
-        public async Task<SingleResponse<Chamado>> GetById(int id)
+
+        public async Task<Response> Delete(int id)
         {
+             _db.Chamados.Remove(new Chamado { ID = id });
             try
             {
-                Chamado item = await _db.Chamados.FindAsync(id);
-                if(id == null)
-                {
-                    return SingleResponseFactory<Chamado>.CreateFaiulureSingleResponse();
-                }
-                return SingleResponseFactory<Chamado>.CreateSuccessSingleResponse(item);
+                await _db.SaveChangesAsync();
+                return ResponseFactory.CreateSuccessResponse();
             }
             catch (Exception ex)
             {
-                return SingleResponseFactory<Chamado>.CreateFailureSingleResponse(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
+        }
+
+        public Task<SingleResponse<Chamado>> GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

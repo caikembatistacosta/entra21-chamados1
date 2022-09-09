@@ -85,6 +85,17 @@ namespace WEBPresentationLayer.Controllers
             ChamadoDetailsViewModel viewModel = _mapper.Map<ChamadoDetailsViewModel>(chamado);
             return View(viewModel);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Response response = await _chamadosvc.Delete(id);
+            if (!response.HasSuccess)
+            {
+                return RedirectToAction(nameof(Index));
+            }            
+           return RedirectToAction(nameof(Index));
+        }
         
 
     }

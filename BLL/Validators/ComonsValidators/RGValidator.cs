@@ -10,6 +10,7 @@ namespace BLL.Validators.ComonsValidators
     internal static class RGValidator
     {
         
+
     }
 
 

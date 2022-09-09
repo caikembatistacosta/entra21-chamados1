@@ -12,6 +12,7 @@ namespace BLL.Interfaces
     {
         Task<Response> Insert(Chamado chamado);
         Task<Response> Update(Chamado chamado);
+        Task<Response> Delete(int id);
         Task<DataResponse<Chamado>> GetAll();
         Task<SingleResponse<Chamado>> GetById(int id);
     }

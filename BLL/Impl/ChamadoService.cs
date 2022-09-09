@@ -30,6 +30,10 @@ namespace BLL.Impl
         {
             return await chamadoDAO.GetById(id);
         }
+        public async Task<Response> Delete(int id)
+        {
+            return await chamadoDAO.Delete(id);
+        }
 
         public async Task<Response> Insert(Chamado chamado)
         {

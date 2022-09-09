@@ -1,15 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BLL",
+    "\\BLL\\bin",
     "\\BLL\\Validators",
-    "\\BLL\\Validators\\Funcionarios",
-    "\\DAO",
     "\\DAO\\Impl",
     "\\WEBPresentationLayer",
     "\\WEBPresentationLayer\\Models",
-    "\\WEBPresentationLayer\\Models\\Funcionarios",
     "\\WEBPresentationLayer\\Views",
+    "\\WEBPresentationLayer\\Views\\Cliente",
+    "\\WEBPresentationLayer\\Views\\Funcionario",
     "\\WEBPresentationLayer\\Views\\Home"
   ],
   "SelectedNode": "\\Chamados.sln",

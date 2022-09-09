@@ -20,11 +20,13 @@ namespace DAO.Mappings
             builder.Property(f => f.Senha).HasMaxLength(20).IsRequired().IsUnicode(false);
             builder.Property(f => f.DataNascimento).IsRequired().HasColumnType("datetime2");
             builder.Property(f => f.CPF).HasMaxLength(20).IsRequired().IsUnicode(false);
+            builder.HasIndex(f => f.CPF).IsUnique();
             builder.Property(f => f.RG).HasMaxLength(14).IsRequired().IsUnicode(false);
+            builder.HasIndex(f => f.RG).IsUnique();
             builder.Property(f => f.Genero).IsRequired().IsUnicode(false);
             builder.Property(f => f.NivelDeAcesso).IsRequired().IsUnicode(false);
             builder.Property(f => f.IsAtivo).IsRequired().IsUnicode(false);
-
+            
         }
     }
 }
