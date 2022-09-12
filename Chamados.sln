@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEBApi", "WEBApi\WEBApi.csproj", "{1635CD42-D8A5-4EB5-825C-96FC77E8C9FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEBApi", "WEBApi\WEBApi.csproj", "{1635CD42-D8A5-4EB5-825C-96FC77E8C9FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

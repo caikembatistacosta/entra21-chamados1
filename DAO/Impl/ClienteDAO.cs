@@ -29,7 +29,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
@@ -50,7 +50,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
@@ -65,7 +65,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
         public async Task<DataResponse<Cliente>> GetAll()

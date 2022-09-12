@@ -2,7 +2,9 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WEBApi.ApiConfig;
 using WEBApi.Models.Funcionario;
 
@@ -19,7 +21,10 @@ namespace WEBApi.Controllers
             this.funcionarioService = funcionarioService;
             this.mapper = mapper;
         }
-        [HttpGet("Login")]
+
+       
+
+        [HttpGet("Login"), AllowAnonymous]
         public IActionResult Login()
         {
             return Ok();
@@ -34,11 +39,12 @@ namespace WEBApi.Controllers
             {
                 return BadRequest();
             }
-            var token = TokenService.GenerateToken(singleResponse.Item);
+            string token = TokenService.GenerateToken(singleResponse.Item);
             funcionario.Senha = "";
 
             return Ok(token);
 
         }
+    
     }
 }

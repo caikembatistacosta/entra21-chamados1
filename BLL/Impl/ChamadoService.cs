@@ -26,7 +26,7 @@ namespace BLL.Impl
             return await chamadoDAO.GetAll();
         }
 
-        public async Task<SingleResponse<Chamado>> GetById(int id)
+        public async Task<SingleResponse<Chamado>> GetById(Chamado id)
         {
             return await chamadoDAO.GetById(id);
         }
@@ -34,25 +34,19 @@ namespace BLL.Impl
         public async Task<Response> Insert(Chamado chamado)
         {
             Response response = new ChamadoInsertValidator().Validate(chamado).ConvertToResponse();
-            //PetInsertValidator validator = new PetInsertValidator();
-            //ValidationResult result = validator.Validate(p);
-            //Response response = result.ConvertToResponse();
 
             if (!response.HasSuccess)
-            //Se a validação não passou, retorne o response para tela!
             {
                 return response;
             }
-            //Se o pet está sendo cadastrado, então ele está ativo.
 
-            //Se chegou aqui, é pq a validação passou e o PET está pronto pra ser cadastrado no banco.
             response = await chamadoDAO.Insert(chamado);
             return response;
         }
 
         public async Task<Response> Update(Chamado chamado)
         {
-            SingleResponse<Chamado> singleResponse = await chamadoDAO.GetById(chamado.ID);
+            SingleResponse<Chamado> singleResponse = await chamadoDAO.GetById(chamado);
 
             if (chamado == null)
             {

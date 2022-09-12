@@ -18,6 +18,17 @@ namespace WEBApi.Controllers
             _chamadoService = chamado;
             this.mapper = mapper;
         }
+        [HttpGet("All-Chamados")]
+        public async Task<IActionResult> IndexChamado()
+        {
+            DataResponse<Chamado> responseChamados = await _chamadoService.GetAll();
+            if (!responseChamados.HasSuccess)
+            {
+                return BadRequest(responseChamados.Message);
+            }
+            List<ChamadoSelectViewModel> chamados = mapper.Map<List<ChamadoSelectViewModel>>(responseChamados.Data);
+            return Ok(chamados);
+        }
 
         [HttpGet("InsertChamado")]
         public IActionResult InsertChamado()
@@ -41,7 +52,7 @@ namespace WEBApi.Controllers
         }
 
         [HttpGet("UpdateChamado")]
-        public async Task<IActionResult> UpdateChamado(int id)
+        public async Task<IActionResult> UpdateChamado(Chamado id)
         {
             SingleResponse<Chamado> responseChamado = await _chamadoService.GetById(id);
             if (!responseChamado.HasSuccess)
@@ -65,7 +76,7 @@ namespace WEBApi.Controllers
             return Ok(response);
         }
         [HttpPost("Details")]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(Chamado id)
         {
             SingleResponse<Chamado> single = await _chamadoService.GetById(id);
             if (!single.HasSuccess)

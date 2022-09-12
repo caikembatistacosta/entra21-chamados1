@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Entities.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace WEBPresentationLayer.Models.Funcionario
 {
@@ -10,5 +11,9 @@ namespace WEBPresentationLayer.Models.Funcionario
         [Required(ErrorMessage ="Senha deve ser informada")]
         [StringLength(20,MinimumLength = 6, ErrorMessage = "Senha deve conter entr 6 a 20 caracteres")]
         public string Senha { get; set; }
+
+        public string Nome { get; set; }
+        public NivelDeAcesso NivelDeAcesso { get; set; }
+
     }
 }

@@ -2,85 +2,92 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net;
+using System.Net.Http.Json;
 using WEBPresentationLayer.Models.Chamado;
 
 namespace WEBPresentationLayer.Controllers
 {
+    [Authorize]
     public class ChamadoController : Controller
     {
-        private readonly IChamadoService _chamadosvc;
-        private readonly IMapper _mapper;
-        public ChamadoController(IChamadoService svc, IMapper mapper)
+        private readonly HttpClient _httpClient;
+        public ChamadoController(HttpClient httpClient)
         {
-            this._chamadosvc = svc;
-            this._mapper = mapper;
+            httpClient.BaseAddress = new Uri("https://localhost:7234/");
+            _httpClient = httpClient;
         }
+       
         public async Task<IActionResult> Index()
         {
-
-            DataResponse<Chamado> responseChamados = await _chamadosvc.GetAll();
-
-            if (!responseChamados.HasSuccess)
+            HttpResponseMessage response = await _httpClient.GetAsync("Chamado/All-Chamados");
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            Object? chamado = JsonConvert.DeserializeObject(json);
+            if(chamado == null)
             {
-                ViewBag.Errors = responseChamados.Message;
-                return View();
+                return NotFound();
             }
-            List<ChamadoSelectViewModel> chamados = _mapper.Map<List<ChamadoSelectViewModel>>(responseChamados.Data);
-            return View(chamados);
+            return View(chamado);//Desfazer o Json para virar um IEnumerable de Chamados
+
         }
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            HttpResponseMessage response = await _httpClient.GetAsync("Chamado/InsertChamado");
+            response.EnsureSuccessStatusCode();
+            
+            string json = await response.Content.ReadAsStringAsync();
+            Object? chamado = JsonConvert.DeserializeObject(json);
+            
+            if (chamado == null)
+                return NotFound();
+            
+            return View(chamado); //Desfazer o Json para virar um ViewModel de Chamados
         }
         [HttpPost]
         public async Task<IActionResult> Create(ChamadoInsertViewModel viewModel)
         {
-            HttpClient client = new HttpClient();
-            string data = JsonConvert.SerializeObject(viewModel);
-            StringContent content = new StringContent(data);
-
-            HttpResponseMessage message = await client.PostAsync("localhost:5000/Chamado/InsertChamado", content);
-            return View(message);
-            
-
+            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<ChamadoInsertViewModel>("Chamado/InsertChamado", viewModel);
+            Task<string> content = message.Content.ReadAsStringAsync();
            
+            if (content.Result.Contains("400"))
+                return NotFound();
+
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            SingleResponse<Chamado> responseChamado = await _chamadosvc.GetById(id);
-            if (!responseChamado.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            Chamado chamado= responseChamado.Item;
-            ChamadoUpdateViewModel updateViewModel = _mapper.Map<ChamadoUpdateViewModel>(chamado);
-            return View(updateViewModel);
-
+            HttpResponseMessage response = await _httpClient.GetAsync("Chamado/Edit/");
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            Object? chamado = JsonConvert.DeserializeObject(json);
+            if(chamado == null) 
+                return NotFound(); 
+            
+            return View(chamado);//Desfazer o Json para virar um ViewModel de Chamados
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ChamadoUpdateViewModel viewModel)
         {
-            Chamado chamado = _mapper.Map<Chamado>(viewModel);
-            Response response = await _chamadosvc.Update(chamado);
-            if (response.HasSuccess)
+            HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<ChamadoUpdateViewModel>("Chamado/UpdateChamado", viewModel);
+            Task<string> content = httpResponseMessage.Content.ReadAsStringAsync();
+            if (content.Result.Contains("400"))
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewBag.Errors = response.Message;
-            return View(chamado);
+            return RedirectToAction(nameof(Index));
+
         }
         public async Task<IActionResult> Details(int id)
         {
-
-            var chamado = new Chamado();
-            ChamadoDetailsViewModel viewModel = _mapper.Map<ChamadoDetailsViewModel>(chamado);
-            return View(viewModel);
+            return View();
         }
-        
+
 
     }
 }

@@ -18,7 +18,7 @@ namespace WEBApi.ApiConfig
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Email, funcionario.Email),
-                    //new Claim(ClaimTypes.Role, funcionario.Role)
+                    new Claim(ClaimTypes.Role, funcionario.NivelDeAcesso.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

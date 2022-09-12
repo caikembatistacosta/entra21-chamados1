@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(x =>
    {
        x.RequireHttpsMetadata = false;
        x.SaveToken = true;
-       x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+       x.TokenValidationParameters = new TokenValidationParameters
        {
            ValidateIssuerSigningKey = true,
            IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -41,6 +41,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddDbContext<ChamadosDbContext>(options => {
     options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
+    options.UseSqlServer("name=ConnectionStrings:CasaDavi");
 });
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();

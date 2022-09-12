@@ -28,13 +28,15 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
         public async Task<Response> Update(Chamado chamados)
         {
-            Chamado chamadoDB = await _db.Chamados.FindAsync(chamados.ID);
+            Chamado? chamadoDB = await _db.Chamados.FindAsync(chamados.ID);
+            if (chamadoDB == null)
+                return ResponseFactory.CreateFailureResponse();
             chamadoDB.ID = chamados.ID;
             chamadoDB.Nome = chamados.Nome;
             chamadoDB.DescricaoCurta = chamados.DescricaoCurta;
@@ -48,7 +50,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
@@ -63,7 +65,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
         //Terminar delete
@@ -80,12 +82,12 @@ namespace DAO.Impl
                 return DataResponseFactory<Chamado>.CreateFailureDataResponse(ex);
             }
         }
-        public async Task<SingleResponse<Chamado>> GetById(int id)
+        public async Task<SingleResponse<Chamado>> GetById(Chamado chamado)
         {
             try
             {
-                Chamado item = await _db.Chamados.FindAsync(id);
-                if(id == null)
+                Chamado? item = await _db.Chamados.FindAsync(chamado.ID);
+                if(item == null)
                 {
                     return SingleResponseFactory<Chamado>.CreateFaiulureSingleResponse();
                 }
