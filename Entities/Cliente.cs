@@ -16,5 +16,7 @@ namespace Entities
         public string Email { get; set; }
         public Genero Genero { get; set; }
         public bool EstaAtivo { get; set; }
+        public int EnderecoID { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAO.Migrations
 {
     [DbContext(typeof(ChamadosDbContext))]
-    [Migration("20220820020508_MoreEntities")]
-    partial class MoreEntities
+    [Migration("20220912194720_db")]
+    partial class db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,11 @@ namespace DAO.Migrations
 
             modelBuilder.Entity("Entities.Chamado", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<DateTime>("DataFim")
                         .HasColumnType("datetime2");
@@ -50,19 +50,13 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("ImagemUrl")
-                        .IsRequired()
-                        .HasMaxLength(2048)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(2048)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("CHAMADOS", (string)null);
                 });
@@ -91,6 +85,9 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int>("EnderecoID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("EstaAtivo")
                         .HasColumnType("bit");
 
@@ -104,6 +101,9 @@ namespace DAO.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("EnderecoID")
+                        .IsUnique();
 
                     b.ToTable("CLIENTES", (string)null);
                 });
@@ -254,6 +254,18 @@ namespace DAO.Migrations
                     b.ToTable("FUNCIONARIOS", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Cliente", b =>
+                {
+                    b.HasOne("Entities.Endereco", "Endereco")
+                        .WithOne("Cliente")
+                        .HasForeignKey("Entities.Cliente", "EnderecoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_ENDERECO_CLIENTE");
+
+                    b.Navigation("Endereco");
+                });
+
             modelBuilder.Entity("Entities.Endereco", b =>
                 {
                     b.HasOne("Entities.Estado", "Estado")
@@ -263,6 +275,12 @@ namespace DAO.Migrations
                         .IsRequired();
 
                     b.Navigation("Estado");
+                });
+
+            modelBuilder.Entity("Entities.Endereco", b =>
+                {
+                    b.Navigation("Cliente")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

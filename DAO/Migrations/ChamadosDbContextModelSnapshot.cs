@@ -83,6 +83,9 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int>("EnderecoID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("EstaAtivo")
                         .HasColumnType("bit");
 
@@ -96,6 +99,9 @@ namespace DAO.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("EnderecoID")
+                        .IsUnique();
 
                     b.ToTable("CLIENTES", (string)null);
                 });
@@ -246,6 +252,18 @@ namespace DAO.Migrations
                     b.ToTable("FUNCIONARIOS", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Cliente", b =>
+                {
+                    b.HasOne("Entities.Endereco", "Endereco")
+                        .WithOne("Cliente")
+                        .HasForeignKey("Entities.Cliente", "EnderecoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_ENDERECO_CLIENTE");
+
+                    b.Navigation("Endereco");
+                });
+
             modelBuilder.Entity("Entities.Endereco", b =>
                 {
                     b.HasOne("Entities.Estado", "Estado")
@@ -255,6 +273,12 @@ namespace DAO.Migrations
                         .IsRequired();
 
                     b.Navigation("Estado");
+                });
+
+            modelBuilder.Entity("Entities.Endereco", b =>
+                {
+                    b.Navigation("Cliente")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

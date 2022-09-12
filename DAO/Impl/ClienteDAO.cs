@@ -38,9 +38,6 @@ namespace DAO.Impl
             Cliente clienteDB = await _db.Clientes.FindAsync(cliente.ID);
             clienteDB.Nome = cliente.Nome;
             clienteDB.Email = cliente.Email;
-
-
-            
             try
             {
                 

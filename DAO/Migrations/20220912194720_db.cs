@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAO.Migrations
 {
-    public partial class InitialBase : Migration
+    public partial class db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,24 +24,6 @@ namespace DAO.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CHAMADOS", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CLIENTES",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CPF = table.Column<string>(type: "char(11)", unicode: false, fixedLength: true, maxLength: 11, nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
-                    Genero = table.Column<int>(type: "int", nullable: false),
-                    EstaAtivo = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CLIENTES", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -106,6 +88,37 @@ namespace DAO.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CLIENTES",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CPF = table.Column<string>(type: "char(11)", unicode: false, fixedLength: true, maxLength: 11, nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    Genero = table.Column<int>(type: "int", nullable: false),
+                    EstaAtivo = table.Column<bool>(type: "bit", nullable: false),
+                    EnderecoID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CLIENTES", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ENDERECO_CLIENTE",
+                        column: x => x.EnderecoID,
+                        principalTable: "ENDERECOS",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CLIENTES_EnderecoID",
+                table: "CLIENTES",
+                column: "EnderecoID",
+                unique: true);
+
             migrationBuilder.CreateIndex(
                 name: "IX_ENDERECOS_EstadoId",
                 table: "ENDERECOS",
@@ -121,10 +134,10 @@ namespace DAO.Migrations
                 name: "CLIENTES");
 
             migrationBuilder.DropTable(
-                name: "ENDERECOS");
+                name: "FUNCIONARIOS");
 
             migrationBuilder.DropTable(
-                name: "FUNCIONARIOS");
+                name: "ENDERECOS");
 
             migrationBuilder.DropTable(
                 name: "ESTADOS");

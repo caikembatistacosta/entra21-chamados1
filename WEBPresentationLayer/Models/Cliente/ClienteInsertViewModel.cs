@@ -2,7 +2,7 @@
 
 namespace WEBPresentationLayer.Models.Cliente
 {
-    public class ChamadoInsertViewModel
+    public class ClienteInsertViewModel
     {
         [Required(ErrorMessage = "O nome deve ser informado.")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "O nome deve conter entre 3 e 30 caracteres.")]
@@ -16,5 +16,13 @@ namespace WEBPresentationLayer.Models.Cliente
 
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
+
+        public string CEP { get; set; }
+        public string Rua { get; set; }
+        public string Bairro { get; set; }
+        public string Numero { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+
     }
 }
