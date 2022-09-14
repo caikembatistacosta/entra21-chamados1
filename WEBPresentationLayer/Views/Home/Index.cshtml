@@ -276,6 +276,10 @@
                                             <strong>Data Entrega</strong>
                                             @d.DataFim
                                         </li>
+                                                             <li>
+                                            <strong>Status Demanda</strong>
+                                            @d.StatusDaDemanda
+                                        </li>
                                     </ul>
                                         <td >
                                             @Html.ActionLink("Detalhes das demandas","Details","Demanda",  new { id=d.ID  })

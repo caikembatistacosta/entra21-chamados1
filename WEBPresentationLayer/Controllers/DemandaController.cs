@@ -86,7 +86,7 @@ namespace WEBPresentationLayer.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        [Route("ChangeStatusInProgress")]
+        //[Route("ChangeStatusInProgress")]
         public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
         {
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);

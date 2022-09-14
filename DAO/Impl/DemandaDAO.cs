@@ -51,6 +51,22 @@ namespace DAO.Impl
                 return ResponseFactory.CreateFailureResponseWithEx(ex);
             }
         }
+        public async Task<Response> UpdateStatus(Demanda Demandas)
+        {
+            Demanda DemandaDB = await _db.Demandas.FindAsync(Demandas.ID);
+            DemandaDB.ID = Demandas.ID;
+            DemandaDB.StatusDaDemanda = Demandas.StatusDaDemanda;
+
+            try
+            {
+                await _db.SaveChangesAsync();
+                return ResponseFactory.CreateSuccessResponse();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.CreateFailureResponseWithEx(ex);
+            }
+        }
 
         public async Task<Response> Delete(Cliente cliente)
         {

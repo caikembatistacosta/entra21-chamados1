@@ -77,14 +77,8 @@ namespace BLL.Impl
                 return singleResponse;
             }
             Demanda.StatusDaDemanda = Entities.Enums.StatusDemanda.Andamento;
-            Response response = new DemandaUpdateValidator().Validate(Demanda).ConvertToResponse();
-            if (!response.HasSuccess)
-            {
-                return response;
-            }
 
-            response = await DemandaDAO.Update(Demanda);
-            return response;
+            return await DemandaDAO.UpdateStatus(Demanda);
             }
     }
 }
