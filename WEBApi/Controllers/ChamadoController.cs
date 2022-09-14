@@ -2,6 +2,7 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WEBApi.Models.Chamado;
 
@@ -9,6 +10,8 @@ namespace WEBApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
+    
     public class ChamadoController : Controller
     {
         private readonly IChamadoService _chamadoService;

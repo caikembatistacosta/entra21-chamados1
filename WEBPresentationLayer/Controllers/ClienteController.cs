@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
@@ -6,6 +7,7 @@ using WEBPresentationLayer.Models.Cliente;
 
 namespace WEBPresentationLayer.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ClienteController : Controller
     {
         private readonly HttpClient _httpClient;

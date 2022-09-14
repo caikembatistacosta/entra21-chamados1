@@ -1,0 +1,42 @@
+﻿@using WEBPresentationLayer.Models.Funcionario
+@{
+    FuncionarioLoginViewModel funcionarioLogin = Model;
+}
+@if(funcionarioLogin != null){
+    @Html.AntiForgeryToken()
+    <li style="color: white">
+        @Html.ActionLink("Olá "+funcionarioLogin.Nome, "Index","Login")
+    </li>
+    <li style="color: white">
+        @Html.ActionLink("Log Off","Logoff","Login")
+    </li>
+}
+else{
+    <li class="nav-item">
+        <a class ="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Index">Log in</a>
+    </li>
+}
+
+<!--
+    if{
+
+    
+    <li class="nav-item">
+        <a class ="nav-link text-white" asp-area="" asp-page="/Index" >Olá Model.Nome</a>
+    </li>
+    <li class="nav-item">
+        <form class="form-inline" asp-area="" asp-page="/Login" asp-page-handler="logut"
+            asp-route-returnUrl =Url.Page("/Index", new {area=""})>
+            <button type=submit class="nav-link btn btn-link text-dark">Sair</button>
+        </form>
+    </li>
+    }
+    else{
+    <li class="nav-item">
+        <a class="nav-link text-white" asp-area="" asp-page="/InsertCostumer">Quero me cadastrar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" asp-area="" asp-page="/Login">Entrar</a>
+    </li>
+    }
+-->

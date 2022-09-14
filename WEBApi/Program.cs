@@ -39,10 +39,10 @@ builder.Services.AddAuthentication(x =>
    });
 
 
-builder.Services.AddDbContext<ChamadosDbContext>(options => {
-    options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
-    options.UseSqlServer("name=ConnectionStrings:CasaDavi");
-});
+builder.Services.AddDbContext<ChamadosDbContext>(optionsAction => 
+    optionsAction.UseSqlServer("name=ConnectionStrings:CasaDavi"));
+
+
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
 builder.Services.AddTransient<IChamadoService, ChamadoService>();

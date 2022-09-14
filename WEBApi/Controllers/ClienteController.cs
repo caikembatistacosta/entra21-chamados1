@@ -2,6 +2,7 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WEBApi.Models.Chamado;
 using WEBApi.Models.Cliente;
@@ -10,6 +11,7 @@ namespace WEBApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Roles = "Admin")]
     public class ClienteController : Controller
     {
         private readonly IClienteService _clientesvc;

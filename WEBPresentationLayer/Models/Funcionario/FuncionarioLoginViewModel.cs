@@ -12,5 +12,6 @@ namespace WEBPresentationLayer.Models.Funcionario
         [StringLength(20,MinimumLength = 6, ErrorMessage = "Senha deve conter entr 6 a 20 caracteres")]
         public string Senha { get; set; }
 
+        public string Nome { get; set; }
     }
 }
