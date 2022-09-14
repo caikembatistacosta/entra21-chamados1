@@ -2,34 +2,37 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WEBPresentationLayer.Models.Demanda;
 
 namespace WEBPresentationLayer.Controllers
 {
+    //[Authorize]
     public class DemandaController : Controller
     {
-        private readonly IDemandaService _Demandasvc;
-        private readonly IMapper _mapper;
-        public DemandaController(IDemandaService svc, IMapper mapper)
+        private readonly HttpClient _httpClient;
+        public DemandaController(HttpClient httpClient)
         {
-            this._Demandasvc = svc;
-            this._mapper = mapper;
+            httpClient.BaseAddress = new Uri("https://localhost:7202/");
+            _httpClient = httpClient;
         }
+
         public async Task<IActionResult> Index()
         {
 
-            DataResponse<Demanda> responseDemandas = await _Demandasvc.GetAll();
-
-            if (!responseDemandas.HasSuccess)
+            HttpResponseMessage response = await _httpClient.GetAsync("Demanda/All-Demanda");
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            Object? chamado = JsonConvert.DeserializeObject(json);
+            if (chamado == null)
             {
-                ViewBag.Errors = responseDemandas.Message;
-                return View();
+                return NotFound();
             }
-            List<DemandaSelectViewModel> Demandas = _mapper.Map<List<DemandaSelectViewModel>>(responseDemandas.Data);
-            return View(Demandas);
+            return View(chamado);
         }
-        [HttpGet]
+        [HttpGet("Insert-Demands")]
         public IActionResult Create()
         {
             return View();
@@ -37,67 +40,56 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DemandaInsertViewModel viewModel)
         {
+            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Demanda/Insert-Demands", viewModel);
+            Task<string> content = message.Content.ReadAsStringAsync();
 
-            Demanda Demanda = _mapper.Map<Demanda>(viewModel);
+            if (content.Result.Contains("400"))
+                return NotFound();
 
-            Response response = await _Demandasvc.Insert(Demanda);
-
-            if (response.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            ViewBag.Errors = response.Message;
-            return View();
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            SingleResponse<Demanda> responseDemanda = await _Demandasvc.GetById(id);
-            if (!responseDemanda.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            Demanda Demanda= responseDemanda.Item;
-            DemandaUpdateViewModel updateViewModel = _mapper.Map<DemandaUpdateViewModel>(Demanda);
-            return View(updateViewModel);
+            HttpResponseMessage response = await _httpClient.GetAsync("Demanda/Edit-Demands");
+            response.EnsureSuccessStatusCode();
+            string json = await response.Content.ReadAsStringAsync();
+            Object? chamado = JsonConvert.DeserializeObject(json);
+            if (chamado == null)
+                return NotFound();
+
+            return View(chamado);
 
         }
         [HttpPost]
         public async Task<IActionResult> Edit(DemandaUpdateViewModel viewModel)
         {
-            Demanda Demanda = _mapper.Map<Demanda>(viewModel);
-            Response response = await _Demandasvc.Update(Demanda);
-            if (response.HasSuccess)
+            HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<DemandaUpdateViewModel>("Demanda/Edit-Demands", viewModel);
+            Task<string> content = httpResponseMessage.Content.ReadAsStringAsync();
+            if (content.Result.Contains("400"))
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            ViewBag.Errors = response.Message;
-            return View(Demanda);
+            return RedirectToAction(nameof(Index));
         }
-        public async Task<IActionResult> Details(int id)
-        {
-            SingleResponse<Demanda> single = await _Demandasvc.GetById(id);
-            if (!single.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            Demanda Demanda = single.Item;
-            DemandaDetailsViewModel viewModel = _mapper.Map<DemandaDetailsViewModel>(Demanda);
-            return View(viewModel);
-        }
-        [HttpPost]
-        [Route("ChangeStatusInProgress")]
-        public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
-        {
-            Demanda Demanda = _mapper.Map<Demanda>(viewModel);
-            Response response = await _Demandasvc.ChangeStatusInProgress(Demanda);
-            if (response.HasSuccess)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            ViewBag.Errors = response.Message;
-            return View(Demanda);
-        }
+        //public async Task<IActionResult> Details(int id)
+        //{
+           
+        //}
+
+        //[HttpPost]
+        //[Route("ChangeStatusInProgress")]
+        //public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
+        //{
+        //    Demanda Demanda = _mapper.Map<Demanda>(viewModel);
+        //    Response response = await _Demandasvc.ChangeStatusInProgress(Demanda);
+        //    if (response.HasSuccess)
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    ViewBag.Errors = response.Message;
+        //    return View(Demanda);
+        //}
 
 
     }

@@ -34,18 +34,12 @@ namespace BLL.Impl
         public async Task<Response> Insert(Demanda Demanda)
         {
             Response response = new DemandaInsertValidator().Validate(Demanda).ConvertToResponse();
-            //PetInsertValidator validator = new PetInsertValidator();
-            //ValidationResult result = validator.Validate(p);
-            //Response response = result.ConvertToResponse();
 
             if (!response.HasSuccess)
-            //Se a validação não passou, retorne o response para tela!
             {
                 return response;
             }
-            //Se o pet está sendo cadastrado, então ele está ativo.
 
-            //Se chegou aqui, é pq a validação passou e o PET está pronto pra ser cadastrado no banco.
             response = await DemandaDAO.Insert(Demanda);
             return response;
         }

@@ -1,4 +1,4 @@
-using AutoMapper;
+
 using BLL.Impl;
 using BLL.Interfaces;
 using DAO;
@@ -6,24 +6,29 @@ using DAO.Impl;
 using DAO.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using WEBPresentationLayer.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddAuthentication("CookieAuthentication")
+       .AddCookie("CookieAuthentication", config =>
+       {
+           config.Cookie.Name = "UserLoginCookie";
+           config.LoginPath = "/Login";
+           config.AccessDeniedPath = "/Home/Index"; // Adicionar uma página de não autorizado
+       });
+builder.Services.AddDbContext<DemandasDbContext>(options => {
+    options.UseSqlServer("name=ConnectionStrings:DemandaDB");
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<DemandasDbContext>(options => { 
-    options.UseSqlServer("name=ConnectionStrings:CasaCaike");
-    options.EnableSensitiveDataLogging();
-    }) ;
-builder.Services.AddTransient<IClienteService, ClienteService>();
-builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
-builder.Services.AddTransient<IDemandaService,DemandaService>();
-builder.Services.AddTransient<IDemandaDAO, DemandaDAO>();
-builder.Services.AddTransient<IFuncionarioDAO, FuncionarioDAO>();
-builder.Services.AddTransient<IFuncionarioService, FuncionarioService>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddTransient<IDemandaService, DemandaService>();
+builder.Services.AddTransient<IDemandaDAO, DemandaDAO>();
+builder.Services.AddHttpClient<DemandaController>();
+builder.Services.AddHttpClient<ClienteController>();
+builder.Services.AddHttpClient<LoginController>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
 var app = builder.Build();
 

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEBPresentationLayer", "WEBPresentationLayer\WEBPresentationLayer.csproj", "{2C24B587-8DE9-477A-A570-41D70E8E312A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEBPresentationLayer", "WEBPresentationLayer\WEBPresentationLayer.csproj", "{2C24B587-8DE9-477A-A570-41D70E8E312A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{E0C1D404-F8D7-4257-9A32-488E8E3E2405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{E0C1D404-F8D7-4257-9A32-488E8E3E2405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{82FF2B6F-FDBB-43A2-A949-1B9E4D1B2860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{82FF2B6F-FDBB-43A2-A949-1B9E4D1B2860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{7C54C1CA-0719-42D6-A200-3B3B38D6378F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{7C54C1CA-0719-42D6-A200-3B3B38D6378F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{D4A8BD07-E785-40C3-B230-B2411668420C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A90F941-AFB2-48EF-8A57-2EAD1C24ED7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A8BD07-E785-40C3-B230-B2411668420C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A8BD07-E785-40C3-B230-B2411668420C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A8BD07-E785-40C3-B230-B2411668420C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A8BD07-E785-40C3-B230-B2411668420C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

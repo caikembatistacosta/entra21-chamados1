@@ -10,15 +10,13 @@ namespace WEBPresentationLayer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IDemandaService _DemandaService;
 
-        public HomeController(ILogger<HomeController> logger, IDemandaService DemandaService)
+        public HomeController(IDemandaService DemandaService)
         {
-            _logger = logger;
             this._DemandaService = DemandaService;
         }
-
+        
         public async Task<IActionResult> Index()
         {
             //SUBSTITUIR DEPOIS PELA CHAMADA DA WEB API DO DAVI
@@ -26,15 +24,5 @@ namespace WEBPresentationLayer.Controllers
             return View(DemandasResponse.Data);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
