@@ -11,14 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ChamadosDbContext>(options => { 
-    options.UseSqlServer("name=ConnectionStrings:ChamadoDB");
+builder.Services.AddDbContext<DemandasDbContext>(options => { 
+    options.UseSqlServer("name=ConnectionStrings:CasaCaike");
     options.EnableSensitiveDataLogging();
     }) ;
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
-builder.Services.AddTransient<IChamadoService,ChamadoService>();
-builder.Services.AddTransient<IChamadoDAO, ChamadoDAO>();
+builder.Services.AddTransient<IDemandaService,DemandaService>();
+builder.Services.AddTransient<IDemandaDAO, DemandaDAO>();
 builder.Services.AddTransient<IFuncionarioDAO, FuncionarioDAO>();
 builder.Services.AddTransient<IFuncionarioService, FuncionarioService>();
 

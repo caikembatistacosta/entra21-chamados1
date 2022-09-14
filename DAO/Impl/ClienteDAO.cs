@@ -12,8 +12,8 @@ namespace DAO.Impl
 {
     public class ClienteDAO : IClienteDAO
     {
-        private readonly ChamadosDbContext _db;
-        public ClienteDAO(ChamadosDbContext db)
+        private readonly DemandasDbContext _db;
+        public ClienteDAO(DemandasDbContext db)
         {
             this._db = db;
         }

@@ -3,9 +3,9 @@ using WEBPresentationLayer.Models.Cliente;
 
 namespace WEBPresentationLayer.Profile.Clientes
 {
-    public class ChamadosProfile : AutoMapper.Profile
+    public class DemandasProfile : AutoMapper.Profile
     {
-        public ChamadosProfile()
+        public DemandasProfile()
         {
             CreateMap<ClienteInsertViewModel, Cliente>();
             CreateMap<ClienteSelectViewModel, Cliente>();

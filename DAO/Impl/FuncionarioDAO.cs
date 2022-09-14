@@ -12,8 +12,8 @@ namespace DAO.Impl
 {
     public class FuncionarioDAO : IFuncionarioDAO
     {
-        private readonly ChamadosDbContext _db;
-        public FuncionarioDAO(ChamadosDbContext db)
+        private readonly DemandasDbContext _db;
+        public FuncionarioDAO(DemandasDbContext db)
         {
             this._db = db;
         }

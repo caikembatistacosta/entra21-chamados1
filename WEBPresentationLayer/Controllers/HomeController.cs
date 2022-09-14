@@ -11,19 +11,19 @@ namespace WEBPresentationLayer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IChamadoService _chamadoService;
+        private readonly IDemandaService _DemandaService;
 
-        public HomeController(ILogger<HomeController> logger, IChamadoService chamadoService)
+        public HomeController(ILogger<HomeController> logger, IDemandaService DemandaService)
         {
             _logger = logger;
-            this._chamadoService = chamadoService;
+            this._DemandaService = DemandaService;
         }
 
         public async Task<IActionResult> Index()
         {
             //SUBSTITUIR DEPOIS PELA CHAMADA DA WEB API DO DAVI
-            DataResponse<Chamado> chamadosResponse = await _chamadoService.GetAll();
-            return View(chamadosResponse.Data);
+            DataResponse<Demanda> DemandasResponse = await _DemandaService.GetAll();
+            return View(DemandasResponse.Data);
         }
 
         public IActionResult Privacy()
