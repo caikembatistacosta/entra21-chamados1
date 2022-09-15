@@ -6,6 +6,7 @@ namespace WEBPresentationLayer.Models.Funcionario
 {
     public class FuncionarioUpdateViewModel
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Nome deve ser informado.")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Nome deve conter entre 3 e 30 caracteres.")]
         public string Nome { get; set; }

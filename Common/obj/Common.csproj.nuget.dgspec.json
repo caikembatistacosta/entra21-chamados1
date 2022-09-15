@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj": {}
+    "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\Common\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sX20ONMdHk/C0/eNBORYf7/v3bUAUibVwLdPEfkMFjerKpqVxNyJeLIj7cZTT0bWBgWAWbW4s1T5KiMYD3+YYA==",
+  "dgSpecHash": "GsH78UqDxRHvI77ZfkPI7/xzMwu7QUPE2g/l4zYYoxwmLgggytqjVNf727Z5Aeks3Qd7yru0hU/1/DvGoIMYhQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Desktop\\tropa\\entra21-chamados1\\DAO\\DAO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\entra21\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

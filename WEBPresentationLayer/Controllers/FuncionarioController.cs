@@ -74,8 +74,16 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(FuncionarioUpdateViewModel viewModel)
         {
+            viewModel.Senha = viewModel.Senha.Hash();
             Funcionario funcionario = _mapper.Map<Funcionario>(viewModel);
-            Response response = await _Funcionario.Update(funcionario);
+            Funcionario funcionarioUpdate = _Funcionario.GetById(funcionario.Id).Result.Item;
+            funcionarioUpdate.Senha = funcionario.Senha;
+            funcionarioUpdate.Nome = funcionario.Nome;
+            funcionarioUpdate.Sobrenome = funcionario.Sobrenome;
+            funcionarioUpdate.DataNascimento = funcionario.DataNascimento;
+            funcionarioUpdate.Genero = funcionario.Genero;
+            funcionarioUpdate.NivelDeAcesso = funcionario.NivelDeAcesso;
+            Response response = await _Funcionario.Update(funcionarioUpdate);
             if (response.HasSuccess)
             {
                 return RedirectToAction("Index");
