@@ -1,4 +1,5 @@
-﻿@model WEBPresentationLayer.Models.Demanda.DemandaDetailsViewModel
+﻿@using Entities.Enums
+@model WEBPresentationLayer.Models.Demanda.DemandaDetailsViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -56,9 +57,16 @@
     </dl>
 </div>
 <div>
-
+    @{
+    @if(Model.StatusDaDemanda.Equals(StatusDemanda.Andamento))
+    {
+        <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja finalizar a demanda?"/>
+    }
+    else
+    {
         <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja aceitar a demanda?"/>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    }}
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     <a asp-action="Index">Back to List</a>
 </div>
 }
