@@ -21,18 +21,25 @@ namespace WEBPresentationLayer.Controllers
 
         public async Task<IActionResult> Index()
         {
-
-            HttpResponseMessage response = await _httpClient.GetAsync("Demanda/All-Demanda");
-            response.EnsureSuccessStatusCode();
-            string json = await response.Content.ReadAsStringAsync();
-            Object? chamado = JsonConvert.DeserializeObject(json);
-            if (chamado == null)
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync("All-Demands");
+                response.EnsureSuccessStatusCode();
+                string json = await response.Content.ReadAsStringAsync();
+                List<DemandaSelectViewModel>? chamado = JsonConvert.DeserializeObject<List<DemandaSelectViewModel>>(json);
+                if (chamado == null)
+                {
+                    return NotFound();
+                }
+                return View(chamado);
+            }
+            catch (Exception ex)
             {
                 return NotFound();
             }
-            return View(chamado);
+           
         }
-        [HttpGet("Insert-Demands")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -40,10 +47,10 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DemandaInsertViewModel viewModel)
         {
-            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Demanda/Insert-Demands", viewModel);
-            Task<string> content = message.Content.ReadAsStringAsync();
+            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Insert-Demands", viewModel);
+            string content = await message.Content.ReadAsStringAsync();
 
-            if (content.Result.Contains("400"))
+            if (content.Contains("400"))
                 return NotFound();
 
             return RedirectToAction(nameof(Index));
@@ -51,26 +58,42 @@ namespace WEBPresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("Demanda/Edit-Demands");
-            response.EnsureSuccessStatusCode();
-            string json = await response.Content.ReadAsStringAsync();
-            Object? chamado = JsonConvert.DeserializeObject(json);
-            if (chamado == null)
-                return NotFound();
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync($"Edit-Demands?id={id}");
+                response.EnsureSuccessStatusCode();
+                string json = await response.Content.ReadAsStringAsync();
+                DemandaUpdateViewModel? chamado = JsonConvert.DeserializeObject<DemandaUpdateViewModel>(json);
+                if (chamado == null)
+                    return NotFound();
 
-            return View(chamado);
+                return View(chamado);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+            
 
         }
         [HttpPost]
         public async Task<IActionResult> Edit(DemandaUpdateViewModel viewModel)
         {
-            HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<DemandaUpdateViewModel>("Demanda/Edit-Demands", viewModel);
-            Task<string> content = httpResponseMessage.Content.ReadAsStringAsync();
-            if (content.Result.Contains("400"))
+            try
+            {
+                HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<DemandaUpdateViewModel>("Edit-Demands", viewModel);
+                string content = await httpResponseMessage.Content.ReadAsStringAsync();
+                if (content.Contains("400"))
+                {
+                    return NotFound();
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
             {
                 return NotFound();
             }
-            return RedirectToAction(nameof(Index));
+           
         }
         //public async Task<IActionResult> Details(int id)
         //{

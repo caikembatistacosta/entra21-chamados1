@@ -2126,24 +2126,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\entra21\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\entra21\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2157,11 +2152,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\BLL\\BLL.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\Demandas\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\BLL\\BLL.csproj"
             },
-            "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\DAO\\DAO.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\DAO\\DAO.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\Demandas\\DAO\\DAO.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\DAO\\DAO.csproj"
             }
           }
         }
@@ -2195,7 +2190,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2207,7 +2203,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

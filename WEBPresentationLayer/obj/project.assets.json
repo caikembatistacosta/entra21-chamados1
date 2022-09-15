@@ -9783,24 +9783,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\entra21\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\entra21\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
       "projectName": "WEBPresentationLayer",
-      "projectPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+      "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
       "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WEBPresentationLayer\\obj\\",
+      "outputPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WEBPresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9814,8 +9809,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\BLL\\BLL.csproj"
+            "C:\\Users\\entra21\\Source\\Repos\\Demandas\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\BLL\\BLL.csproj"
             }
           }
         }
@@ -9859,7 +9854,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -9871,7 +9867,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

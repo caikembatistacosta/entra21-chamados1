@@ -21,13 +21,21 @@ namespace WEBPresentationLayer.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            HttpResponseMessage message = await _httpClient.GetAsync("Cliente/All-Costumers");
-            message.EnsureSuccessStatusCode();
-            string json = await message.Content.ReadAsStringAsync();
-            Object? cliente = JsonConvert.DeserializeObject(json);
-            if (cliente == null)
+            try
+            {
+                HttpResponseMessage message = await _httpClient.GetAsync("Cliente/All-Costumers");
+                //message.EnsureSuccessStatusCode();
+                string json = await message.Content.ReadAsStringAsync();
+                Cliente? cliente = JsonConvert.DeserializeObject<Cliente>(json);
+                if (cliente == null)
+                    return NotFound();
+                return View(cliente);
+            }
+            catch (Exception ex)
+            {
                 return NotFound();
-            return View(cliente);
+            }
+          
         }
         [HttpGet("Insert-Costumer")]
         public IActionResult Create()

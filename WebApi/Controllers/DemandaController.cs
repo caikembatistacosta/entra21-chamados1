@@ -36,19 +36,18 @@ namespace WebApi.Controllers
             return Ok();
         }
         [HttpPost("Insert-Demands")]
-        public async Task<IActionResult> Create(DemandaInsertViewModel viewModel)
+        public async Task<IActionResult> Create([FromBody] DemandaInsertViewModel viewModel)
         {
 
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
 
             Response response = await _Demandasvc.Insert(Demanda);
 
-            if (response.HasSuccess)
+            if (!response.HasSuccess)
             {
-                return BadRequest(response);
+                return BadRequest(response.Message);
             }
-            ViewBag.Errors = response.Message;
-            return Ok();
+            return CreatedAtRoute("Insert-Demands", new {id = viewModel.ID}, viewModel);
         }
         [HttpGet("Edit-Demands")]
         public async Task<IActionResult> Edit(int id)
@@ -58,7 +57,7 @@ namespace WebApi.Controllers
             {
                 return BadRequest(responseDemanda.Message);
             }
-            Demanda Demanda= responseDemanda.Item;
+            Demanda Demanda = responseDemanda.Item;
             DemandaUpdateViewModel updateViewModel = _mapper.Map<DemandaUpdateViewModel>(Demanda);
             return Ok(updateViewModel);
 
@@ -68,11 +67,11 @@ namespace WebApi.Controllers
         {
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
             Response response = await _Demandasvc.Update(Demanda);
-            if (response.HasSuccess)
+            if (!response.HasSuccess)
             {
+                ViewBag.Errors = response.Message;
                 return BadRequest();
             }
-            ViewBag.Errors = response.Message;
             return Ok(Demanda);
         }
         [HttpGet("Demands-Details")]

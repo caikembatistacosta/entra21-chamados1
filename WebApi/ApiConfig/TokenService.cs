@@ -1,14 +1,17 @@
-﻿using Entities;
+﻿using Common;
+using Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using WebApi.Interface;
 
 namespace WebApi.ApiConfig
 {
-    public class TokenService
+    public class TokenService : ITokenService
     {
-        public static string GenerateToken(Funcionario funcionario)
+
+        public SingleResponse<string> GenerateToken(Funcionario funcionario)
         {
             JwtSecurityTokenHandler tokenHandler = new();
             byte[] key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -23,7 +26,22 @@ namespace WebApi.ApiConfig
                 SigningCredentials = new(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            if (token == null)
+            {
+                SingleResponse<string> singles = new()
+                {
+                    HasSuccess = false,
+                    Message = "Token Não foi gerado"
+                };
+                return singles;
+            }
+            SingleResponse<string> single = new()
+            {
+                HasSuccess = true,
+                Message = "Token foi gerado com sucesso",
+                Item = tokenHandler.WriteToken(token)
+            };
+            return single;
         }
     }
 }

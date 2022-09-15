@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ex+YuGCPLxVrvGhWNmX0nLXq+T9tXmKHD34MzZMRTcPobi9na7G6BcW7AiRM11OvMm0KidpfYf3Ogky5qp2Rfw==",
+  "dgSpecHash": "U7KQmjXUI9YEqONPMnxEfYkj/6/YUZOmI+zqejuH7jtT6JCEKLvvQ9yBlYy+FAblVUTkJGJrb6aybLZf+dUm3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\source\\repos\\entra21-chamados1\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\entra21\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

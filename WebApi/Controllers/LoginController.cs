@@ -4,6 +4,7 @@ using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.ApiConfig;
+using WebApi.Interface;
 using WebApi.Models.Funcionario;
 
 namespace WebApi.Controllers
@@ -12,10 +13,12 @@ namespace WebApi.Controllers
     {
         private readonly IFuncionarioService _funcionario;
         private readonly IMapper mapper;
-        public LoginController(IFuncionarioService funcionario, IMapper mapper)
+        private readonly ITokenService tokenService;
+        public LoginController(IFuncionarioService funcionario, IMapper mapper, ITokenService service)
         {
-            this._funcionario = funcionario;
+            _funcionario = funcionario;
             this.mapper = mapper;
+            tokenService = service;
         }
         [HttpGet("Login")]
         public IActionResult Index()
@@ -31,7 +34,7 @@ namespace WebApi.Controllers
             {
                 return BadRequest();
             }
-            string token = TokenService.GenerateToken(singleResponse.Item);
+            SingleResponse<string> token = tokenService.GenerateToken(singleResponse.Item);
             funcionario.Senha = "";
 
             return Ok(token);

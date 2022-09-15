@@ -6,6 +6,8 @@ using DAO.Impl;
 using DAO.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using WebApi.ApiConfig;
+using WebApi.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,7 @@ builder.Services.AddTransient<IDemandaService, DemandaService>();
 builder.Services.AddTransient<IDemandaDAO, DemandaDAO>();
 builder.Services.AddTransient<IFuncionarioDAO, FuncionarioDAO>();
 builder.Services.AddTransient<IFuncionarioService, FuncionarioService>();
+builder.Services.AddTransient<ITokenService, TokenService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 var app = builder.Build();
