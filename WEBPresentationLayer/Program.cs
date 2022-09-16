@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DemandasDbContext>(options => { 
-    options.UseSqlServer("name=ConnectionStrings:CasaCaike");
+    options.UseSqlServer("name=ConnectionStrings:DemandaDB");
     options.EnableSensitiveDataLogging();
     }) ;
 builder.Services.AddTransient<IClienteService, ClienteService>();

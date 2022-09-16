@@ -65,7 +65,10 @@
                     {
                         <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja finalizar a demanda?" />
                     }
-                    else
+                    else if (Model.StatusDaDemanda.Equals(StatusDemanda.Finalizada))
+                    {
+
+                    }else 
                     {
                         <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja aceitar a demanda?" />
                     }
@@ -133,7 +136,10 @@
                     {
                         <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja finalizar a demanda?" />
                     }
-                    else
+                    else if (Model.StatusDaDemanda.Equals(StatusDemanda.Finalizada))
+                    {
+
+                    }else 
                     {
                         <input type="submit" class="btn btn-primary btn-xl text-uppercase" value="Deseja aceitar a demanda?" />
                     }

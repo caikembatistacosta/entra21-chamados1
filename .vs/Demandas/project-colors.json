@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2c24b587-8de9-477a-a570-41d70e8e312a": {
+      "ProjectGuid": "2c24b587-8de9-477a-a570-41d70e8e312a",
+      "DisplayName": "WEBPresentationLayer",
+      "ColorIndex": 0
+    },
+    "82ff2b6f-fdbb-43a2-a949-1b9e4d1b2860": {
+      "ProjectGuid": "82ff2b6f-fdbb-43a2-a949-1b9e4d1b2860",
+      "DisplayName": "DAO",
+      "ColorIndex": 1
+    },
+    "e0c1d404-f8d7-4257-9a32-488e8e3e2405": {
+      "ProjectGuid": "e0c1d404-f8d7-4257-9a32-488e8e3e2405",
+      "DisplayName": "BLL",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
