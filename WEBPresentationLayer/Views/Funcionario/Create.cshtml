@@ -49,12 +49,34 @@
             </div>
             <div class="form-group">
                 <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
+                @{
+                    string[] valores = Enum.GetNames<Entities.Enums.Genero>();
+                }
+
+                <select class="form-control" name="Tipo">
+                    @for(int i = 0; i < valores.Length; i++)
+                    {
+                        <option value="@i">@valores[i].Replace("_"," ")</option>
+                    }    
+                </select>
+
+
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label asp-for="NivelDeAcesso" class="control-label"></label>
-                <input asp-for="NivelDeAcesso" class="form-control" />
+                @{
+                    string[] valoress = Enum.GetNames<Entities.Enums.NivelDeAcesso>();
+                }
+
+                <select  class="form-control" name="Tipo" >
+
+                    @for(int i = 0; i < valores.Length; i++)
+                    {
+                        <option value="@i">@valores[i].Replace("_"," ")</option>
+                    }              
+                </select>               
+
                 <span asp-validation-for="NivelDeAcesso" class="text-danger"></span>
             </div>
             <div class="form-group">

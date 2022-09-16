@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\BLL\\BLL.csproj": {}
+    "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\BLL\\BLL.csproj": {
+    "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,14 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj"
               },
-              "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj"
+              "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\DAO.csproj"
               },
-              "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj"
               }
             }
           }
@@ -65,8 +61,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -75,25 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -124,8 +115,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -134,25 +124,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj": {
+    "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\DAO.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\DAO\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\DAO.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\DAO\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,11 +152,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Common\\Common.csproj"
               },
-              "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj"
               }
             }
           }
@@ -202,8 +188,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -212,25 +197,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\teste\\entra21-chamados1\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\new\\entra21-chamados1\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -261,8 +242,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -271,7 +251,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
