@@ -80,5 +80,17 @@ namespace BLL.Impl
 
             return await DemandaDAO.UpdateStatus(Demanda);
             }
+        public async Task<Response> ChangeStatusInFinished(Demanda Demanda)
+        {
+            SingleResponse<Demanda> singleResponse = await DemandaDAO.GetById(Demanda.ID);
+
+            if (Demanda == null)
+            {
+                return singleResponse;
+            }
+            Demanda.StatusDaDemanda = Entities.Enums.StatusDemanda.Finalizada;
+
+            return await DemandaDAO.UpdateStatus(Demanda);
+        }
     }
 }

@@ -15,5 +15,7 @@ namespace BLL.Interfaces
         Task<DataResponse<Demanda>> GetAll();
         Task<SingleResponse<Demanda>> GetById(int id);
         Task<Response> ChangeStatusInProgress(Demanda Demanda);
+        Task<Response> ChangeStatusInFinished(Demanda Demanda);
+        
     }
 }

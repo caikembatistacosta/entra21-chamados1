@@ -98,6 +98,17 @@ namespace WEBPresentationLayer.Controllers
             ViewBag.Errors = response.Message;
             return View(Demanda);
         }
+        public async Task<IActionResult> ChangeStatusInFinished(DemandaUpdateViewModel viewModel)
+        {
+            Demanda Demanda = _mapper.Map<Demanda>(viewModel);
+            Response response = await _Demandasvc.ChangeStatusInFinished(Demanda);
+            if (response.HasSuccess)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Errors = response.Message;
+            return View(Demanda);
+        }
 
 
     }
