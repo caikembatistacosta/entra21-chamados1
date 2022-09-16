@@ -28,13 +28,15 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
         public async Task<Response> Update(Demanda Demandas)
         {
-            Demanda DemandaDB = await _db.Demandas.FindAsync(Demandas.ID);
+            Demanda? DemandaDB = await _db.Demandas.FindAsync(Demandas.ID);
+            if (DemandaDB == null)
+                return ResponseFactory.CreateFailureResponse();
             DemandaDB.ID = Demandas.ID;
             DemandaDB.Nome = Demandas.Nome;
             DemandaDB.DescricaoCurta = Demandas.DescricaoCurta;
@@ -48,7 +50,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
@@ -63,7 +65,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
         //Terminar delete

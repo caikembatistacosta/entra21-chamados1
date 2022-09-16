@@ -50,7 +50,7 @@
         </dd>
     </dl>
 </div>
-<a class="btn btn-primary btn-xl text-uppercase" asp-area="" asp-controller="Demanda" asp-action="ChangeStatusInProgress">Deseja aceitar a demanda?</a>
+<a class="btn btn-primary btn-xl text-uppercase" asp-area="" asp-controller="Demanda" asp-action="ChangeStatusInProgress" method="post">Deseja aceitar a demanda?</a>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
 

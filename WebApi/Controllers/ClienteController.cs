@@ -9,7 +9,7 @@ using WebApi.Models.Cliente;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/{controller}/{id}")]
+    [Route("{controller}")]
 
     public class ClienteController : Controller
     {
@@ -45,9 +45,8 @@ namespace WebApi.Controllers
         [HttpPost("Insert-Costumer")]
         public async Task<IActionResult> Create(ClienteInsertViewModel viewModel)
         {
-
+            
             Cliente cliente = _mapper.Map<Cliente>(viewModel);
-
             Response response = await _clientesvc.Insert(cliente);
 
             if (response.HasSuccess)
@@ -61,7 +60,7 @@ namespace WebApi.Controllers
             SingleResponse<Cliente> responseCliente = await _clientesvc.GetById(id);
             if (!responseCliente.HasSuccess)
             {
-                
+
                 return BadRequest(responseCliente.Message);
             }
             Cliente cliente = responseCliente.Item;

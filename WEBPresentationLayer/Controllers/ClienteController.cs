@@ -24,9 +24,9 @@ namespace WEBPresentationLayer.Controllers
             try
             {
                 HttpResponseMessage message = await _httpClient.GetAsync("Cliente/All-Costumers");
-                //message.EnsureSuccessStatusCode();
+                message.EnsureSuccessStatusCode();
                 string json = await message.Content.ReadAsStringAsync();
-                Cliente? cliente = JsonConvert.DeserializeObject<Cliente>(json);
+                List<ClienteSelectViewModel>? cliente = JsonConvert.DeserializeObject<List<ClienteSelectViewModel>>(json);
                 if (cliente == null)
                     return NotFound();
                 return View(cliente);
@@ -37,7 +37,7 @@ namespace WEBPresentationLayer.Controllers
             }
           
         }
-        [HttpGet("Insert-Costumer")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -48,9 +48,9 @@ namespace WEBPresentationLayer.Controllers
         {
 
             HttpResponseMessage message = await _httpClient.PostAsJsonAsync<ClienteInsertViewModel>("Cliente/Insert-Costumer", viewModel);
-            Task<string> content = message.Content.ReadAsStringAsync();
+            string content = await message.Content.ReadAsStringAsync();
 
-            if (content.Result.Contains("400"))
+            if (content.Contains("BadRequest"))
                 return NotFound();
 
             return RedirectToAction(nameof(Index));
@@ -58,10 +58,10 @@ namespace WEBPresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("Cliente/Edit-Costumer/");
+            HttpResponseMessage response = await _httpClient.GetAsync($"Cliente/Edit-Costumer?id={id}");
             response.EnsureSuccessStatusCode();
             string json = await response.Content.ReadAsStringAsync();
-            Object? cliente = JsonConvert.DeserializeObject(json);
+            ClienteUpdateViewModel? cliente = JsonConvert.DeserializeObject<ClienteUpdateViewModel>(json);
             if (cliente == null)
                 return NotFound();
 
@@ -72,9 +72,9 @@ namespace WEBPresentationLayer.Controllers
         public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
         {
             HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<ClienteUpdateViewModel>("Cliente/Update-Costumer", viewModel);
-            Task<string> content = httpResponseMessage.Content.ReadAsStringAsync();
+            string content = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            if (content.Result.Contains("400"))
+            if (content.Contains("BadRequest"))
                 return NotFound();
 
             return RedirectToAction(nameof(Index));

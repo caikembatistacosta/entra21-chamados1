@@ -26,5 +26,13 @@ namespace Common
                 Exception = ex,
             };
         }
+        public static DataResponse<T> CreateFailureDataResponse()
+        {
+            return new DataResponse<T>()
+            {
+                HasSuccess = false,
+                Message = "Operação falhou",
+            };
+        }
     }
 }

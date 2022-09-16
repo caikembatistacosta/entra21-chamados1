@@ -20,8 +20,8 @@ namespace DAO.Impl
 
         public async Task<Response> Insert(Cliente cliente)
         {
+            _db.Enderecos.Add(cliente.Endereco);
             _db.Clientes.Add(cliente);
-
             try
             {
                 await _db.SaveChangesAsync();
@@ -29,13 +29,17 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
         public async Task<Response> Update(Cliente cliente)
         {
-            Cliente clienteDB = await _db.Clientes.FindAsync(cliente.ID);
+            Cliente? clienteDB = await _db.Clientes.FindAsync(cliente.ID);
+            if (clienteDB == null)
+            {
+                return ResponseFactory.CreateFailureResponse();
+            }
             clienteDB.Nome = cliente.Nome;
             clienteDB.Email = cliente.Email;
             try
@@ -47,7 +51,7 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
 
@@ -62,16 +66,21 @@ namespace DAO.Impl
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponseWithEx(ex);
+                return ResponseFactory.CreateFailureResponse(ex);
             }
         }
         public async Task<DataResponse<Cliente>> GetAll()
         {
             try
             {
-                List<Cliente> clientes = await _db.Clientes.ToListAsync();
+                List<Cliente> clientes = await _db.Clientes.Include(c => c.Endereco).Include(c => c.Endereco.Estado).ToListAsync();
+                if (clientes.Count < 0)
+                {
+                    return DataResponseFactory<Cliente>.CreateFailureDataResponse();
+                }
+               
                 return DataResponseFactory<Cliente>.CreateSuccessDataResponse(clientes);
-
+               
             }
             catch (Exception ex)
             {

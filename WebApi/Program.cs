@@ -28,7 +28,7 @@ builder.Services.AddTransient<IFuncionarioDAO, FuncionarioDAO>();
 builder.Services.AddTransient<IFuncionarioService, FuncionarioService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

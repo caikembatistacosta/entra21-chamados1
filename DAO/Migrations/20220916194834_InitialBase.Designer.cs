@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAO.Migrations
 {
     [DbContext(typeof(DemandasDbContext))]
-    [Migration("20220914130628_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220916194834_InitialBase")]
+    partial class InitialBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("ProductVersion", "6.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -144,7 +144,7 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("EstadoId")
+                    b.Property<int>("EstadoID")
                         .HasColumnType("int");
 
                     b.Property<string>("Numero")
@@ -167,24 +167,18 @@ namespace DAO.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EstadoId");
+                    b.HasIndex("EstadoID");
 
                     b.ToTable("ENDERECOS", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Estado", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("NomeEstado")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(20)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("UF")
                         .IsRequired()
@@ -192,7 +186,7 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("ESTADOS", (string)null);
                 });
@@ -274,7 +268,7 @@ namespace DAO.Migrations
                 {
                     b.HasOne("Entities.Estado", "Estado")
                         .WithMany()
-                        .HasForeignKey("EstadoId")
+                        .HasForeignKey("EstadoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

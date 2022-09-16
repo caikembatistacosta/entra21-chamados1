@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAO.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,14 +31,13 @@ namespace DAO.Migrations
                 name: "ESTADOS",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UF = table.Column<string>(type: "varchar(2)", unicode: false, maxLength: 2, nullable: false),
-                    NomeEstado = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
+                    UF = table.Column<string>(type: "varchar(2)", unicode: false, maxLength: 2, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ESTADOS", x => x.Id);
+                    table.PrimaryKey("PK_ESTADOS", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,16 +75,16 @@ namespace DAO.Migrations
                     Bairro = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
                     Complemento = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     PontoReferencia = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
-                    EstadoId = table.Column<int>(type: "int", nullable: false)
+                    EstadoID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ENDERECOS", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ENDERECOS_ESTADOS_EstadoId",
-                        column: x => x.EstadoId,
+                        name: "FK_ENDERECOS_ESTADOS_EstadoID",
+                        column: x => x.EstadoID,
                         principalTable: "ESTADOS",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -121,9 +120,9 @@ namespace DAO.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ENDERECOS_EstadoId",
+                name: "IX_ENDERECOS_EstadoID",
                 table: "ENDERECOS",
-                column: "EstadoId");
+                column: "EstadoID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
