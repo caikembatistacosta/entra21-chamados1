@@ -15,6 +15,7 @@ namespace DAO.Interfaces
         Task<Response> UpdateStatus(Demanda Demanda);
 
         Task<DataResponse<Demanda>> GetAll();
+        Task<DataResponse<Demanda>> GetLast6();
         Task<SingleResponse<Demanda>> GetById(int id);
     }
 }

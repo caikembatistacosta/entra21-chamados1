@@ -22,7 +22,7 @@ namespace WEBPresentationLayer.Controllers
         public async Task<IActionResult> Index()
         {
             //SUBSTITUIR DEPOIS PELA CHAMADA DA WEB API DO DAVI
-            DataResponse<Demanda> DemandasResponse = await _DemandaService.GetAll();
+            DataResponse<Demanda> DemandasResponse = await _DemandaService.GetLast6();
             return View(DemandasResponse.Data);
         }
 

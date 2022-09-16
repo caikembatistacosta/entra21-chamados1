@@ -25,6 +25,10 @@ namespace BLL.Impl
         {
             return await DemandaDAO.GetAll();
         }
+        public async Task<DataResponse<Demanda>> GetLast6()
+        {
+            return await DemandaDAO.GetLast6();
+        }
 
         public async Task<SingleResponse<Demanda>> GetById(int id)
         {

@@ -83,6 +83,7 @@ namespace WEBPresentationLayer.Controllers
             }
             Demanda Demanda = single.Item;
             DemandaDetailsViewModel viewModel = _mapper.Map<DemandaDetailsViewModel>(Demanda);
+            ViewBag.Action = viewModel.StatusDaDemanda == Entities.Enums.StatusDemanda.Andamento ? "ChangeStatusInFinished" : "ChangeStatusInProgress";
             return View(viewModel);
         }
         [HttpPost]

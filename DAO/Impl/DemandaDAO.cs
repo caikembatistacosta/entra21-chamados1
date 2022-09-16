@@ -96,6 +96,19 @@ namespace DAO.Impl
                 return DataResponseFactory<Demanda>.CreateFailureDataResponse(ex);
             }
         }
+        public async Task<DataResponse<Demanda>> GetLast6()
+        {
+            try
+            {
+                List<Demanda> Demandas = await _db.Demandas.OrderByDescending(c => c.ID).Take(6).ToListAsync();
+                return DataResponseFactory<Demanda>.CreateSuccessDataResponse(Demandas);
+
+            }
+            catch (Exception ex)
+            {
+                return DataResponseFactory<Demanda>.CreateFailureDataResponse(ex);
+            }
+        }
         public async Task<SingleResponse<Demanda>> GetById(int id)
         {
             try
