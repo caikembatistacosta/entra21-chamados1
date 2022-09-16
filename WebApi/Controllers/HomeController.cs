@@ -8,6 +8,8 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
+    [Route("{controller}")]
     public class HomeController : Controller
     {
         private readonly IDemandaService _DemandaService;

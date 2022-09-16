@@ -5,6 +5,7 @@ using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Json;
 using WEBPresentationLayer.Models.Demanda;
 
 namespace WEBPresentationLayer.Controllers
@@ -23,7 +24,7 @@ namespace WEBPresentationLayer.Controllers
         {
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync("All-Demands");
+                HttpResponseMessage response = await _httpClient.GetAsync("Demanda/All-Demands");
                 response.EnsureSuccessStatusCode();
                 string json = await response.Content.ReadAsStringAsync();
                 List<DemandaSelectViewModel>? chamado = JsonConvert.DeserializeObject<List<DemandaSelectViewModel>>(json);
@@ -47,7 +48,7 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DemandaInsertViewModel viewModel)
         {
-            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Insert-Demands", viewModel);
+            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Demanda/Insert-Demands", viewModel);
             string content = await message.Content.ReadAsStringAsync();
 
             if (content.Contains("400"))
@@ -60,7 +61,7 @@ namespace WEBPresentationLayer.Controllers
         {
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync($"Edit-Demands?id={id}");
+                HttpResponseMessage response = await _httpClient.GetAsync($"Demanda/Edit-Demands?id={id}");
                 response.EnsureSuccessStatusCode();
                 string json = await response.Content.ReadAsStringAsync();
                 DemandaUpdateViewModel? chamado = JsonConvert.DeserializeObject<DemandaUpdateViewModel>(json);
@@ -81,7 +82,7 @@ namespace WEBPresentationLayer.Controllers
         {
             try
             {
-                HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<DemandaUpdateViewModel>("Edit-Demands", viewModel);
+                HttpResponseMessage httpResponseMessage = await _httpClient.PutAsJsonAsync<DemandaUpdateViewModel>("Demanda/Edit-Demands",viewModel);
                 string content = await httpResponseMessage.Content.ReadAsStringAsync();
                 if (content.Contains("400"))
                 {
@@ -95,24 +96,45 @@ namespace WEBPresentationLayer.Controllers
             }
            
         }
-        //public async Task<IActionResult> Details(int id)
-        //{
-           
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                HttpResponseMessage httpResponseMessage = await _httpClient.GetAsync($"Demanda/Demands-Details?id={id}");
+                httpResponseMessage.EnsureSuccessStatusCode();
+                string json = await httpResponseMessage.Content.ReadAsStringAsync();
+                DemandaDetailsViewModel? demandaDetailsViewModel = JsonConvert.DeserializeObject<DemandaDetailsViewModel>(json);
+                if(demandaDetailsViewModel == null)
+                {
+                    return NotFound();
+                }
+                return View(demandaDetailsViewModel);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
 
-        //[HttpPost]
-        //[Route("ChangeStatusInProgress")]
-        //public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
-        //{
-        //    Demanda Demanda = _mapper.Map<Demanda>(viewModel);
-        //    Response response = await _Demandasvc.ChangeStatusInProgress(Demanda);
-        //    if (response.HasSuccess)
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewBag.Errors = response.Message;
-        //    return View(Demanda);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
+        {
+            try
+            {
+                HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaUpdateViewModel>("Demanda/ChangeStatusInProgress", viewModel);
+                string content = await message.Content.ReadAsStringAsync();
+
+                if (content.Contains("BadRequest"))
+                    return NotFound();
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
 
 
     }

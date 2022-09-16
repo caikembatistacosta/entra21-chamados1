@@ -7,6 +7,8 @@ using WebApi.Models.Demanda;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
+    [Route("{controller}")]
     public class DemandaController : Controller
     {
         private readonly IDemandaService _Demandasvc;
@@ -62,7 +64,7 @@ namespace WebApi.Controllers
             return Ok(updateViewModel);
 
         }
-        [HttpPost("Edit-Demands")]
+        [HttpPut("Edit-Demands")]
         public async Task<IActionResult> Edit(DemandaUpdateViewModel viewModel)
         {
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
@@ -86,19 +88,18 @@ namespace WebApi.Controllers
             DemandaDetailsViewModel viewModel = _mapper.Map<DemandaDetailsViewModel>(Demanda);
             return Ok(viewModel);
         }
-        //[HttpPost]
-        //[Route("ChangeStatusInProgress")]
-        //public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
-        //{
-        //    Demanda Demanda = _mapper.Map<Demanda>(viewModel);
-        //    Response response = await _Demandasvc.ChangeStatusInProgress(Demanda);
-        //    if (response.HasSuccess)
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewBag.Errors = response.Message;
-        //    return View(Demanda);
-        //}
+        [HttpPost("ChangeStatusInProgress")]
+        public async Task<IActionResult> ChangeStatusInProgress(DemandaUpdateViewModel viewModel)
+        {
+            Demanda Demanda = _mapper.Map<Demanda>(viewModel);
+            Response response = await _Demandasvc.ChangeStatusInProgress(Demanda);
+            if (response.HasSuccess)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Errors = response.Message;
+            return View(Demanda);
+        }
 
 
     }

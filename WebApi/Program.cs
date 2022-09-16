@@ -43,5 +43,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+//app.MapControllerRoute(
+//    name: "Edit-Demands",
+//    pattern: "{controller=Demanda/{action=Edit}/{id?}}",
+//);
+
 
 app.Run();

@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\entra21\\.nuget\\packages\\": {}
+    "C:\\Users\\djedr\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\Common\\Common.csproj",
+      "projectUniqueName": "C:\\Users\\djedr\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\Common\\Common.csproj",
-      "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\Source\\Repos\\Demandas\\Common\\obj\\",
+      "projectPath": "C:\\Users\\djedr\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
+      "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\djedr\\Source\\Repos\\caikembatistacosta\\entra21-chamados1\\Common\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

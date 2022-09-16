@@ -22,8 +22,7 @@ builder.Services.AddDbContext<DemandasDbContext>(options => {
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<IDemandaService, DemandaService>();
-builder.Services.AddTransient<IDemandaDAO, DemandaDAO>();
+
 builder.Services.AddHttpClient<DemandaController>();
 builder.Services.AddHttpClient<ClienteController>();
 builder.Services.AddHttpClient<LoginController>();

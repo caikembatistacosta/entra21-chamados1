@@ -8,6 +8,9 @@ using WebApi.Models.Cliente;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
+    [Route("api/{controller}/{id}")]
+
     public class ClienteController : Controller
     {
         private readonly IClienteService _clientesvc;

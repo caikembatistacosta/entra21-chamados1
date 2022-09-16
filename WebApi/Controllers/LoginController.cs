@@ -9,6 +9,8 @@ using WebApi.Models.Funcionario;
 
 namespace WebApi.Controllers
 {
+    [ApiController]
+    [Route("{controller}")]
     public class LoginController : Controller
     {
         private readonly IFuncionarioService _funcionario;
