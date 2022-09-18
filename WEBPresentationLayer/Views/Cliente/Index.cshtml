@@ -82,10 +82,11 @@
                 @Html.DisplayFor(modelItem => item.Endereco.Cidade)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Endereco.Estado)
+                @Html.DisplayFor(modelItem => item.Endereco.Estado.UF)
             </td>
             <td>
                     @Html.ActionLink("Editar", "Edit", new { id=item.ID  })
+                    @Html.ActionLink("Detalhes", "Details", new{id = item.ID})
                     @Html.ActionLink("Excluir", "Delete", new { id=item.ID  })
             </td>
         </tr>

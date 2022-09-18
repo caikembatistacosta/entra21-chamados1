@@ -2,6 +2,7 @@
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models.Demanda;
 
@@ -9,6 +10,7 @@ namespace WebApi.Controllers
 {
     [ApiController]
     [Route("{controller}")]
+    [Authorize]
     public class DemandaController : Controller
     {
         private readonly IDemandaService _Demandasvc;

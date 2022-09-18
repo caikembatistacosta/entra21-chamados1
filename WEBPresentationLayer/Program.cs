@@ -17,7 +17,7 @@ builder.Services.AddAuthentication("CookieAuthentication")
            config.AccessDeniedPath = "/Home/Index"; // Adicionar uma página de não autorizado
        });
 builder.Services.AddDbContext<DemandasDbContext>(options => {
-    options.UseSqlServer("name=ConnectionStrings:DemandaDB");
+    options.UseSqlServer("name=ConnectionStrings:Default");
 });
 // Add services to the container.
 builder.Services.AddControllersWithViews();

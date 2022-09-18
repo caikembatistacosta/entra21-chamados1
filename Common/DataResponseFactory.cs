@@ -8,7 +8,14 @@ namespace Common
 {
     public class DataResponseFactory<T>
     {
-        public static DataResponse<T> CreateSuccessDataResponse(List<T> itens)
+        private static DataResponseFactory<T> _factory;
+
+        public static DataResponseFactory<T> CreateInstance()
+        {
+            _factory ??= new DataResponseFactory<T>();
+            return _factory;
+        }
+        public DataResponse<T> CreateSuccessDataResponse(List<T> itens)
         {
             return new DataResponse<T>()
             {
@@ -17,7 +24,7 @@ namespace Common
                 Data = itens,
             };
         }
-        public static DataResponse<T> CreateFailureDataResponse(Exception ex)
+        public DataResponse<T> CreateFailureDataResponse(Exception ex)
         {
             return new DataResponse<T>()
             {
@@ -26,7 +33,7 @@ namespace Common
                 Exception = ex,
             };
         }
-        public static DataResponse<T> CreateFailureDataResponse()
+        public DataResponse<T> CreateFailureDataResponse()
         {
             return new DataResponse<T>()
             {

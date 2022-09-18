@@ -24,11 +24,11 @@ namespace DAO.Impl
             try
             {
                 await _db.SaveChangesAsync();
-                return ResponseFactory.CreateSuccessResponse();
+                return ResponseFactory.CreateInstance().CreateSuccessResponse();
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateInstance().CreateFailureResponse(ex);
             }
         }
 
@@ -36,7 +36,7 @@ namespace DAO.Impl
         {
             Demanda? DemandaDB = await _db.Demandas.FindAsync(Demandas.ID);
             if (DemandaDB == null)
-                return ResponseFactory.CreateFailureResponse();
+                return ResponseFactory.CreateInstance().CreateFailureResponse();
             DemandaDB.ID = Demandas.ID;
             DemandaDB.Nome = Demandas.Nome;
             DemandaDB.DescricaoCurta = Demandas.DescricaoCurta;
@@ -46,11 +46,11 @@ namespace DAO.Impl
             try
             {    
                 await _db.SaveChangesAsync();
-                return ResponseFactory.CreateSuccessResponse();
+                return ResponseFactory.CreateInstance().CreateSuccessResponse();
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateInstance().CreateFailureResponse(ex);
             }
         }
 
@@ -61,11 +61,11 @@ namespace DAO.Impl
             try
             {
                 await _db.SaveChangesAsync();
-                return ResponseFactory.CreateSuccessResponse();
+                return ResponseFactory.CreateInstance().CreateSuccessResponse();
             }
             catch (Exception ex)
             {
-                return ResponseFactory.CreateFailureResponse(ex);
+                return ResponseFactory.CreateInstance().CreateFailureResponse(ex);
             }
         }
         //Terminar delete
@@ -74,12 +74,12 @@ namespace DAO.Impl
             try
             {
                 List<Demanda> Demandas = await _db.Demandas.OrderByDescending(c=> c.ID).ToListAsync();
-                return DataResponseFactory<Demanda>.CreateSuccessDataResponse(Demandas);
+                return DataResponseFactory<Demanda>.CreateInstance().CreateSuccessDataResponse(Demandas);
 
             }
             catch (Exception ex)
             {
-                return DataResponseFactory<Demanda>.CreateFailureDataResponse(ex);
+                return DataResponseFactory<Demanda>.CreateInstance().CreateFailureDataResponse(ex);
             }
         }
         public async Task<SingleResponse<Demanda>> GetById(int id)
@@ -89,13 +89,13 @@ namespace DAO.Impl
                 Demanda item = await _db.Demandas.FindAsync(id);
                 if(id == null)
                 {
-                    return SingleResponseFactory<Demanda>.CreateFaiulureSingleResponse();
+                    return SingleResponseFactory<Demanda>.CreateInstance().CreateFailureSingleResponse();
                 }
-                return SingleResponseFactory<Demanda>.CreateSuccessSingleResponse(item);
+                return SingleResponseFactory<Demanda>.CreateInstance().CreateSuccessSingleResponse(item);
             }
             catch (Exception ex)
             {
-                return SingleResponseFactory<Demanda>.CreateFailureSingleResponse(ex);
+                return SingleResponseFactory<Demanda>.CreateInstance().CreateFailureSingleResponse(ex);
             }
         }
     }

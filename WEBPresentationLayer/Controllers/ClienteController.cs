@@ -10,7 +10,7 @@ using WEBPresentationLayer.Models.Cliente;
 
 namespace WEBPresentationLayer.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+   [Authorize(Roles = "Admin")]
     public class ClienteController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -50,7 +50,7 @@ namespace WEBPresentationLayer.Controllers
             HttpResponseMessage message = await _httpClient.PostAsJsonAsync<ClienteInsertViewModel>("Cliente/Insert-Costumer", viewModel);
             string content = await message.Content.ReadAsStringAsync();
 
-            if (content.Contains("BadRequest"))
+            if (content.Contains("400"))
                 return NotFound();
 
             return RedirectToAction(nameof(Index));
@@ -71,19 +71,33 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
         {
-            HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync<ClienteUpdateViewModel>("Cliente/Update-Costumer", viewModel);
+            HttpResponseMessage httpResponseMessage = await _httpClient.PutAsJsonAsync<ClienteUpdateViewModel>("Cliente/Update-Costumer", viewModel);
             string content = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            if (content.Contains("BadRequest"))
+            if (content.Contains("400") || content.Contains("500") || content.Contains("404"))
                 return NotFound();
 
             return RedirectToAction(nameof(Index));
         }
-
-        //public IActionResult Delete()
-        //{
-        //    return View();
-        //}
-
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                HttpResponseMessage httpResponseMessage = await _httpClient.GetAsync($"Cliente/Costumer-Details?id={id}");
+                httpResponseMessage.EnsureSuccessStatusCode();
+                string json = await httpResponseMessage.Content.ReadAsStringAsync();
+                ClienteDetailsViewModel? demandaDetailsViewModel = JsonConvert.DeserializeObject<ClienteDetailsViewModel>(json);
+                if (demandaDetailsViewModel == null)
+                {
+                    return NotFound();
+                }
+                return View(demandaDetailsViewModel);
+            }
+            catch (Exception ex)
+            {
+                return NotFound();
+            }
+        }
     }
 }

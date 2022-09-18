@@ -4,6 +4,8 @@ using Common;
 using Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 using WEBPresentationLayer.Models.Funcionario;
 
@@ -27,18 +29,18 @@ namespace WEBPresentationLayer.Controllers
         {
 
             HttpResponseMessage message = await _httpClient.PostAsJsonAsync<FuncionarioLoginViewModel>("Login/Logar", funcionarioLogin);
-            Task<string> content = message.Content.ReadAsStringAsync();
-            if (content.Result.Contains("400"))
+            string content = await message.Content.ReadAsStringAsync();
+            if (!message.IsSuccessStatusCode)
             {
                 return NotFound();
             }
-            var userClaims = new List<Claim>()
+            List<Claim> userClaims = new()
                 {
                     new Claim(ClaimTypes.NameIdentifier, funcionarioLogin.Email),
                     new Claim(ClaimTypes.Email, funcionarioLogin.Email)
                 };
-            var minhaIdentity = new ClaimsIdentity(userClaims, "Usuario");
-            var userPrincipal = new ClaimsPrincipal(new[] { minhaIdentity });
+            ClaimsIdentity minhaIdentity = new ClaimsIdentity(userClaims, "Usuario");
+            ClaimsPrincipal userPrincipal = new ClaimsPrincipal(new[] { minhaIdentity });
             await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
             {
                 IsPersistent = true,
@@ -50,6 +52,22 @@ namespace WEBPresentationLayer.Controllers
         public async Task<IActionResult> Logoff()
         {
             await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Refresh(string token,string refreshToken)
+        {
+            HttpResponseMessage message = await _httpClient.GetAsync($"Login/Refresh?token={token}&refreshToken={refreshToken}");
+            string content = await message.Content.ReadAsStringAsync();
+            if (!message.IsSuccessStatusCode)
+            {
+                return NotFound();
+            }
+            dynamic json = JsonConvert.DeserializeObject(content);
+            if(json == null)
+            {
+                return NotFound();
+            }
             return RedirectToAction("Index", "Home");
         }
 

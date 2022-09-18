@@ -1,25 +1,31 @@
 ﻿using AutoMapper;
-using BLL.Impl;
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Entities.Enums;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using WebApi.Models.Cliente;
+using WebApi.Models.Funcionario;
 
 namespace WebApi.Controllers
 {
     [ApiController]
     [Route("{controller}")]
-
+    [Authorize(Roles = "Administrador")]
     public class ClienteController : Controller
     {
         private readonly IClienteService _clientesvc;
         private readonly IMapper _mapper;
+        private readonly IFuncionarioService _funcionario;
 
-        public ClienteController(IClienteService svc, IMapper mapper)
+        public ClienteController(IClienteService svc, IMapper mapper, IFuncionarioService funcionarioService)
         {
             this._clientesvc = svc;
             this._mapper = mapper;
+            _funcionario = funcionarioService;
         }
         [HttpGet("All-Costumers")]
         public async Task<IActionResult> Index()
@@ -57,10 +63,14 @@ namespace WebApi.Controllers
         [HttpGet("Edit-Costumer")]
         public async Task<IActionResult> Edit(int id)
         {
+            Funcionario currentUser = (Funcionario)HttpContext.Items["Funcionario"];
+            if(id != currentUser.Id && currentUser.NivelDeAcesso != NivelDeAcesso.Administrador)
+            {
+                return Unauthorized(new { message = "Nivel de acesso não permitido" });
+            }
             SingleResponse<Cliente> responseCliente = await _clientesvc.GetById(id);
             if (!responseCliente.HasSuccess)
             {
-
                 return BadRequest(responseCliente.Message);
             }
             Cliente cliente = responseCliente.Item;
@@ -68,17 +78,29 @@ namespace WebApi.Controllers
             return Ok(updateViewModel);
 
         }
-        [HttpPut("Edit-Costumer")]
+        [HttpPut("Update-Costumer")]
         public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
         {
             Cliente cliente = _mapper.Map<Cliente>(viewModel);
             Response response = await _clientesvc.Update(cliente);
-            if (response.HasSuccess)
+            if (!response.HasSuccess)
             {
                 return BadRequest(response.Message);
             }
             ViewBag.Errors = response.Message;
             return Ok(cliente);
+        }
+        [HttpGet("Costumer-Details")]
+        public async Task<IActionResult> Details(int id)
+        {
+            SingleResponse<Cliente> single = await _clientesvc.GetById(id);
+            if (!single.HasSuccess)
+            {
+                return BadRequest(single.Message);
+            }
+            Cliente cliente = single.Item;
+            ClienteDetailsViewModel viewModel = _mapper.Map<ClienteDetailsViewModel>(cliente);
+            return Ok(viewModel);
         }
 
         //public IActionResult Delete()
