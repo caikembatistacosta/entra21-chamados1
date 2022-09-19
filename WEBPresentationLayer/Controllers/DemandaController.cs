@@ -4,6 +4,7 @@ using BLL.Interfaces;
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using WEBPresentationLayer.Models.Demanda;
 
 namespace WEBPresentationLayer.Controllers
@@ -103,6 +104,17 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeStatusInFinished(DemandaUpdateViewModel viewModel)
         {
+            if (viewModel.FileToValidate == null || viewModel.FileToValidate.Length == 0 || Path.GetExtension(viewModel.FileToValidate.FileName) != ".cs")
+            {
+                return await Details(viewModel.ID);
+            }
+            MemoryStream ms = new MemoryStream();
+            viewModel.FileToValidate.CopyTo(ms);
+            ms.Position = 0;
+            string conteudo = Encoding.UTF8.GetString(ms.ToArray());
+
+
+
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
             Response response = await _Demandasvc.ChangeStatusInFinished(Demanda);
             if (response.HasSuccess)
