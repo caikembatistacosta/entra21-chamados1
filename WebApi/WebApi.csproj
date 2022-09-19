@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ApiConfig\**" />
     <Compile Remove="Profile\NewFolder1\**" />
     <Compile Remove="Profile\NewFolder\**" />
+    <Content Remove="ApiConfig\**" />
     <Content Remove="Profile\NewFolder1\**" />
     <Content Remove="Profile\NewFolder\**" />
+    <EmbeddedResource Remove="ApiConfig\**" />
     <EmbeddedResource Remove="Profile\NewFolder1\**" />
     <EmbeddedResource Remove="Profile\NewFolder\**" />
+    <None Remove="ApiConfig\**" />
     <None Remove="Profile\NewFolder1\**" />
     <None Remove="Profile\NewFolder\**" />
   </ItemGroup>
@@ -31,10 +35,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
     <ProjectReference Include="..\DAO\DAO.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ApiConfig\" />
   </ItemGroup>
 
 </Project>

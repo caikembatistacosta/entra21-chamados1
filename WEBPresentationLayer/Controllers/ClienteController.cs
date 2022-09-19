@@ -10,7 +10,7 @@ using WEBPresentationLayer.Models.Cliente;
 
 namespace WEBPresentationLayer.Controllers
 {
-   [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Administrador")]
     public class ClienteController : Controller
     {
         private readonly HttpClient _httpClient;

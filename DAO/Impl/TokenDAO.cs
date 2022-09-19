@@ -26,7 +26,7 @@ namespace WebApi.ApiConfig
             {
                 return SingleResponseFactory<Funcionario>.CreateInstance().CreateFailureSingleResponse();
             }
-            funcionario.Token = token;
+            funcionario.RefreshToken = token;
             try
             {
                 await _db.SaveChangesAsync();
@@ -59,7 +59,7 @@ namespace WebApi.ApiConfig
             {
                 return ResponseFactory.CreateInstance().CreateFailureResponse();
             }
-            funcionario.Token = null;
+            funcionario.RefreshToken = null;
             try
             {
                 await _db.SaveChangesAsync();

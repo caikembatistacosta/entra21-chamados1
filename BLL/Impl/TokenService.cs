@@ -84,7 +84,7 @@ namespace BLL.Impl
                     ValidateAudience = false,
                     ValidateIssuer = false,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Settings.Secret.PadRight((512/8),'\0'))),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Settings.Secret.PadRight(512/8,'\0'))),
                     ValidateLifetime = false,
                 };
                 JwtSecurityTokenHandler tokenHandler = new();

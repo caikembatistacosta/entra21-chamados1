@@ -224,6 +224,9 @@ namespace DAO.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Rg")
                         .IsRequired()
                         .HasMaxLength(14)
@@ -235,9 +238,6 @@ namespace DAO.Migrations
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
-
-                    b.Property<string>("Token")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .IsRequired()

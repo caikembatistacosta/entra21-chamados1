@@ -24,33 +24,9 @@ namespace Common
                 Item = item,
             };
         }
-        public AuthenticateResponse<T> CreateSuccessAuthenticateResponse(T item, string token)
-        {
-            return new AuthenticateResponse<T>()
-            {
-                HasSuccess = true,
-                Message = "Operação realizada com sucesso",
-                Item = item,
-                Token = token
-            };
-        }
-        public AuthenticateResponse<T> CreateFailureAuthenticateResponse()
-        {
-            return new AuthenticateResponse<T>()
-            {
-                HasSuccess = false,
-                Message = "Operação falhou"
-            };
-        }
-        public AuthenticateResponse<T> CreateFailureAuthenticateResponse(Exception ex)
-        {
-            return new AuthenticateResponse<T>()
-            {
-                HasSuccess = false,
-                Message = "Operação falhou",
-                Exception = ex
-            };
-        }
+      
+       
+        
         public SingleResponse<T> CreateFailureSingleResponse(Exception ex)
         {
             return new SingleResponse<T>()

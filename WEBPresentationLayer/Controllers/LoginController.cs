@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BLL.Interfaces;
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Authentication;
@@ -27,27 +26,41 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)
         {
-
-            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<FuncionarioLoginViewModel>("Login/Logar", funcionarioLogin);
-            string content = await message.Content.ReadAsStringAsync();
-            if (!message.IsSuccessStatusCode)
+            try
+            {
+                HttpResponseMessage message = await _httpClient.PostAsJsonAsync<FuncionarioLoginViewModel>("Login/Logar", funcionarioLogin);
+                string content = await message.Content.ReadAsStringAsync();
+                FuncionarioLoginViewModel f = JsonConvert.DeserializeObject<FuncionarioLoginViewModel>(content);
+                if (f == null)
+                {
+                    return NotFound();
+                }
+                if (!message.IsSuccessStatusCode)
+                {
+                    return NotFound();
+                }
+                List<Claim> userClaims = new()
+                {
+                    new Claim(ClaimTypes.NameIdentifier, f.Email),
+                    new Claim(ClaimTypes.Email, f.Email),
+                    new Claim(ClaimTypes.Sid, f.Token)
+                };
+                ClaimsIdentity minhaIdentity = new(userClaims, "Email");
+                ClaimsPrincipal userPrincipal = new(new[] { minhaIdentity });
+                //userPrincipal.IsInRole(f.Token);
+                await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.UtcNow.AddDays(30)
+                });
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception)
             {
                 return NotFound();
             }
-            List<Claim> userClaims = new()
-                {
-                    new Claim(ClaimTypes.NameIdentifier, funcionarioLogin.Email),
-                    new Claim(ClaimTypes.Email, funcionarioLogin.Email)
-                };
-            ClaimsIdentity minhaIdentity = new ClaimsIdentity(userClaims, "Usuario");
-            ClaimsPrincipal userPrincipal = new ClaimsPrincipal(new[] { minhaIdentity });
-            await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
-            {
-                IsPersistent = true,
-                AllowRefresh = true,
-                ExpiresUtc = DateTime.UtcNow.AddDays(30)
-            });
-            return RedirectToAction("Index", "Home");
+           
         }
         public async Task<IActionResult> Logoff()
         {

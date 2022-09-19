@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using WebApi.Models.Funcionario;
+using WebApi.Models.Token;
 
 namespace WebApi.Controllers
 {
@@ -29,7 +30,7 @@ namespace WebApi.Controllers
             return Ok();
         }
         [HttpPost("Logar")]
-        public async Task<dynamic> Logar(FuncionarioLoginViewModel funcionarioLogin)
+        public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)
         {
             Funcionario funcionario = mapper.Map<Funcionario>(funcionarioLogin);
             SingleResponse<Funcionario> singleResponse = await _funcionario.GetLogin(funcionario);
@@ -39,24 +40,26 @@ namespace WebApi.Controllers
             }
             SingleResponse<string> token = tokenService.GenerateToken(funcionario);
             SingleResponse<string> refreshToken = tokenService.RefreshToken();
-            SingleResponse<Funcionario> response = await tokenService.InsertRefreshToken(funcionario.Email, refreshToken.Item);
+            SingleResponse<Funcionario> response = await tokenService.InsertRefreshToken(funcionario.Email,refreshToken.Item);
             if (!response.HasSuccess)
             {
                 return BadRequest(response);
             }
-            return new
+            return Ok(new FuncionarioLoginViewModel
             {
-                Funcionario = response.Item,
-                token,
-            };
+                Email = response.Item.Email,
+                Senha = response.Item.Senha,
+                Token = token.Item,
+                RefreshToken = response.Item.RefreshToken
+            });
         }
-        [HttpGet("Refresh")]
-        public async Task<dynamic> Refresh(string token, string refreshToken)
+        [HttpPost("Refresh")]
+        public async Task<IActionResult> Refresh(TokenViewModel viewModel)
         {
-            SingleResponse<ClaimsPrincipal> principal = tokenService.GetPrincipalFromExpiredToken(token);
+            SingleResponse<ClaimsPrincipal> principal = tokenService.GetPrincipalFromExpiredToken(viewModel.Token);
             string email = principal.Item.Identity.Name;
             SingleResponse<Funcionario> savedRefreshToken = await tokenService.GetRefreshToken(email);
-            if (!savedRefreshToken.Item.Token.Equals(refreshToken))
+            if (!savedRefreshToken.Item.RefreshToken.Equals(viewModel.RefreshToken))
             {
                 return BadRequest(savedRefreshToken.Message = "O token salvo não é igual ao token atual");
             }
@@ -73,16 +76,18 @@ namespace WebApi.Controllers
             Response response = await tokenService.DeleteRefreshToken(email, newRefreshToken.Item);
             if (response.HasSuccess)
             {
-                SingleResponse<Funcionario> singleResponse1 = await tokenService.InsertRefreshToken(email, newRefreshToken.Item);
-                if (!singleResponse1.HasSuccess)
+                SingleResponse<Funcionario> newRToken = await tokenService.InsertRefreshToken(email, newRefreshToken.Item);
+                if (!newRToken.HasSuccess)
                 {
-                    return BadRequest(singleResponse1.Message = "Erro na hora de salvar o novo Refresh Token");
+                    return BadRequest(newRToken.Message = "Erro na hora de salvar o novo Refresh Token");
                 }
-                return new
+              
+                return Ok(new AuthenticateResponse
                 {
-                    refreshToken = singleResponse1.Item.Token,
-                    token = newJwtToken.Item,
-                };
+                    Token = newJwtToken.Item,
+                    Refresh = newRToken.Item.RefreshToken,
+                });
+
             }
             return BadRequest(response.Message = "Não foi possível deletar o token");
         }

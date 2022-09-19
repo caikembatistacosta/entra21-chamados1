@@ -10,7 +10,7 @@ using WEBPresentationLayer.Models.Demanda;
 
 namespace WEBPresentationLayer.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class DemandaController : Controller
     {
         private readonly HttpClient _httpClient;

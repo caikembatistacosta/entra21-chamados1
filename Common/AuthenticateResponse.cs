@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public class AuthenticateResponse<T> : SingleResponse<T>
+    public class AuthenticateResponse : Response
     {
         public string Token { get; set; }
+        public string Refresh { get; set; }
     }
 }

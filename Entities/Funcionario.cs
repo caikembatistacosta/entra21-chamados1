@@ -20,7 +20,7 @@ namespace Entities
         public Genero Genero { get; set; }
         public NivelDeAcesso NivelDeAcesso { get; set; }
         public bool IsAtivo { get; set; }
-        public string? Token { get; set; }
+        public string? RefreshToken { get; set; }
         [JsonIgnore]
         public string Senha { get; set; }
     }
