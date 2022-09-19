@@ -20,7 +20,6 @@ namespace WEBPresentationLayer.Models.Funcionario
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Informe a Senha")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 

@@ -8,6 +8,7 @@ namespace Entities.Enums
 {
     public enum Genero
     {
+        Selecione_Uma_Opção,
         Masculino,
         Feminino,
         Outro

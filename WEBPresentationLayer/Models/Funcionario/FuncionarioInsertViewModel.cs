@@ -39,7 +39,7 @@ namespace WEBPresentationLayer.Models.Funcionario
 
 
         [Required(ErrorMessage = "Genero deve ser informado.")]
-
+        
         public Genero Genero { get; set; }
 
         [Required(ErrorMessage = "Informar nivel de acesso")]
