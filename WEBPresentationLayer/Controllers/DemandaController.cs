@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BLL.ClassValidator;
 using BLL.Interfaces;
 using Common;
 using Entities;
@@ -99,6 +100,7 @@ namespace WEBPresentationLayer.Controllers
             ViewBag.Errors = response.Message;
             return View(Demanda);
         }
+        [HttpPost]
         public async Task<IActionResult> ChangeStatusInFinished(DemandaUpdateViewModel viewModel)
         {
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
@@ -109,6 +111,11 @@ namespace WEBPresentationLayer.Controllers
             }
             ViewBag.Errors = response.Message;
             return View(Demanda);
+        }
+        public async Task<IActionResult> UploadFile()
+        {
+            ClassValidatorService.Validator("");
+            return View();
         }
 
 
