@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
+using Entities;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
@@ -65,17 +66,14 @@ namespace BLL.ClassValidator
                     ms.Seek(0, SeekOrigin.Begin);
 
                     Assembly assembly = AssemblyLoadContext.Default.LoadFromStream(ms);
-                    var type = assembly.GetType("RoslynCompileSample.Writer");
-
+                    Type type = assembly.ExportedTypes.First();
                     MethodInfo[] metodos = ValidatorMethods(type);
                     ConstructorInfo[] construtores = ValidatorContructors(type);
 
                     PropertyInfo[] propriedades = type.GetProperties();
                     ValidatorProperty(propriedades);
 
-                    var instance = assembly.CreateInstance("RoslynCompileSample.Writer");
-                    var meth = type.GetMember("Write").First() as MethodInfo;
-                    meth.Invoke(instance, new[] { "joel" });
+                    
                 }
             }
 
@@ -121,9 +119,30 @@ namespace BLL.ClassValidator
         }
         public static ConstructorInfo[] ValidatorContructors(Type type)
         {
+            List<string> erros = new List<string>();
             try
             {
                 var construtores = type.GetConstructors();
+                //Verifica se o arquivo que foi feito upload é de uma classe que herda de Entity
+                if (type.BaseType == typeof(Entity))
+                {
+                    bool hasParameterelessConstructor = false;
+                    foreach (var item in construtores)
+                    {
+                        //Checa pra ver se a classe enviada que É uma entidade tem um construtor sem parâmetro, obrigatório quando se usa EF.
+                        if (item.GetParameters().Length == 0)
+                        {
+                            hasParameterelessConstructor = true;
+                        }
+                    }
+                    if (!hasParameterelessConstructor)
+                    {
+                        erros.Add("Toda entidade deve possuir um construtor sem parâmetro para o EF.");
+                    }
+
+                }
+                
+                
                 foreach (var item in construtores)
                 {
                     if (item.GetParameters().Length == 0)

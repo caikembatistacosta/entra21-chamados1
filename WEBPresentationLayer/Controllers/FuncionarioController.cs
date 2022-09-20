@@ -91,6 +91,18 @@ namespace MVCPresentationLayer.Controllers
             ViewBag.Errors = response.Message;
             return View(funcionario);
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            SingleResponse<Funcionario> single = await _Funcionario.GetById(id);
+            if (!single.HasSuccess)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            Funcionario funcionario= single.Item;
+            FuncionarioDetailsViewModel viewModel = _mapper.Map<FuncionarioDetailsViewModel>(funcionario);
+
+            return View(viewModel);
+        }
 
         public IActionResult Delete()
         {

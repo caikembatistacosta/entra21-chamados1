@@ -112,7 +112,7 @@ namespace WEBPresentationLayer.Controllers
             viewModel.FileToValidate.CopyTo(ms);
             ms.Position = 0;
             string conteudo = Encoding.UTF8.GetString(ms.ToArray());
-
+            ClassValidatorService.Validator(conteudo);
 
 
             Demanda Demanda = _mapper.Map<Demanda>(viewModel);
