@@ -2,14 +2,17 @@
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Reflection.Metadata;
 using System.Security.Claims;
 using WEBPresentationLayer.Models.Funcionario;
+using WEBPresentationLayer.Models.Token;
 
 namespace WEBPresentationLayer.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -48,12 +51,17 @@ namespace WEBPresentationLayer.Controllers
                 ClaimsIdentity minhaIdentity = new(userClaims, "Email");
                 ClaimsPrincipal userPrincipal = new(new[] { minhaIdentity });
                 //userPrincipal.IsInRole(f.Token);
-                await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
+                //await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
+                //{
+                //    IsPersistent = true,
+                //    AllowRefresh = true,
+                //    ExpiresUtc = DateTime.UtcNow.AddDays(30)
+                //});
+                HttpContext.Response.Cookies.Append("token",f.Token, new CookieOptions { Expires = DateTime.Now.AddHours(1) });
+                if (HttpContext.Request.Cookies.TryGetValue(f.Token, out string token) && f.Token == null)
                 {
-                    IsPersistent = true,
-                    AllowRefresh = true,
-                    ExpiresUtc = DateTime.UtcNow.AddDays(30)
-                });
+                    return NotFound();
+                }
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception)
@@ -62,21 +70,22 @@ namespace WEBPresentationLayer.Controllers
             }
            
         }
+        [Authorize]
         public async Task<IActionResult> Logoff()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-        [HttpGet]
-        public async Task<IActionResult> Refresh(string token,string refreshToken)
+        [HttpPost]
+        public async Task<IActionResult> Refresh(TokenViewModel tokenView)
         {
-            HttpResponseMessage message = await _httpClient.GetAsync($"Login/Refresh?token={token}&refreshToken={refreshToken}");
+            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<TokenViewModel>("Login/Refresh", tokenView);
             string content = await message.Content.ReadAsStringAsync();
             if (!message.IsSuccessStatusCode)
             {
                 return NotFound();
             }
-            dynamic json = JsonConvert.DeserializeObject(content);
+            TokenViewModel json = JsonConvert.DeserializeObject<TokenViewModel>(content);
             if(json == null)
             {
                 return NotFound();

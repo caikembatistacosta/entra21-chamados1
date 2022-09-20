@@ -18,7 +18,7 @@ namespace WebApi.Controllers
         private readonly IFuncionarioService _funcionario;
         private readonly IMapper mapper;
         private readonly ITokenService tokenService;
-        public LoginController(IFuncionarioService funcionario, IMapper mapper, ITokenService service)
+        public LoginController([FromBody] IFuncionarioService funcionario, IMapper mapper, ITokenService service)
         {
             _funcionario = funcionario;
             this.mapper = mapper;
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
             return Ok();
         }
         [HttpPost("Logar")]
-        public async Task<IActionResult> Logar(FuncionarioLoginViewModel funcionarioLogin)
+        public async Task<IActionResult> Logar([FromBody] FuncionarioLoginViewModel funcionarioLogin)
         {
             Funcionario funcionario = mapper.Map<Funcionario>(funcionarioLogin);
             SingleResponse<Funcionario> singleResponse = await _funcionario.GetLogin(funcionario);
@@ -54,7 +54,7 @@ namespace WebApi.Controllers
             });
         }
         [HttpPost("Refresh")]
-        public async Task<IActionResult> Refresh(TokenViewModel viewModel)
+        public async Task<IActionResult> Refresh([FromBody] TokenViewModel viewModel)
         {
             SingleResponse<ClaimsPrincipal> principal = tokenService.GetPrincipalFromExpiredToken(viewModel.Token);
             string email = principal.Item.Identity.Name;

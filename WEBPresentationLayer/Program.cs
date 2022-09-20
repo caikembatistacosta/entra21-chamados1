@@ -14,7 +14,7 @@ builder.Services.AddAuthentication("CookieAuthentication")
        {
            config.Cookie.Name = "UserLoginCookie";
            config.LoginPath = "/Login";
-           config.AccessDeniedPath = "/Home/Error"; // Adicionar uma página de não autorizado
+           config.AccessDeniedPath = "/Home/Index"; // Adicionar uma página de não autorizado
        });
 builder.Services.AddDbContext<DemandasDbContext>(options => {
     options.UseSqlServer("name=ConnectionStrings:Default");
