@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\WEBPresentationLayer\\WEBPresentationLayer.csproj": {}
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\BLL.csproj": {
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,14 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
               },
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\DAO.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj"
               },
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
               }
             }
           }
@@ -79,21 +75,17 @@
         }
       }
     },
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -138,21 +130,17 @@
         }
       }
     },
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\DAO.csproj": {
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\DAO.csproj",
-        "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\DAO\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\DAO.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\DAO\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,11 +154,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Common\\Common.csproj"
               },
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj"
               }
             }
           }
@@ -216,21 +204,17 @@
         }
       }
     },
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -275,21 +259,17 @@
         }
       }
     },
-    "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\WEBPresentationLayer\\WEBPresentationLayer.csproj": {
+    "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
         "projectName": "WEBPresentationLayer",
-        "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
-        "packagesPath": "C:\\Users\\djedr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\WEBPresentationLayer\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\WEBPresentationLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\djedr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -303,8 +283,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\djedr\\source\\repos\\entra21-chamados\\BLL\\BLL.csproj"
+              "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\entra21\\Documents\\caikembatistacosta\\entra21-chamados1\\BLL\\BLL.csproj"
               }
             }
           }

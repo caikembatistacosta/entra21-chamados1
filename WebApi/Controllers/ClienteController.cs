@@ -64,7 +64,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             Funcionario currentUser = (Funcionario)HttpContext.Items["Funcionario"];
-            if(id != currentUser.Id && currentUser.NivelDeAcesso != NivelDeAcesso.Administrador)
+            if(id != currentUser.Id && currentUser.NivelDeAcesso != NivelDeAcesso.Adm)
             {
                 return Unauthorized(new { message = "Nivel de acesso não permitido" });
             }

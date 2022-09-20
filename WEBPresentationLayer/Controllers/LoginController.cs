@@ -2,6 +2,7 @@
 using Common;
 using Entities;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -32,43 +33,48 @@ namespace WEBPresentationLayer.Controllers
             try
             {
                 HttpResponseMessage message = await _httpClient.PostAsJsonAsync<FuncionarioLoginViewModel>("Login/Logar", funcionarioLogin);
-                string content = await message.Content.ReadAsStringAsync();
-                FuncionarioLoginViewModel f = JsonConvert.DeserializeObject<FuncionarioLoginViewModel>(content);
-                if (f == null)
+                if (message.IsSuccessStatusCode)
+                {
+                    string content = await message.Content.ReadAsStringAsync();
+                    FuncionarioLoginViewModel f = JsonConvert.DeserializeObject<FuncionarioLoginViewModel>(content);
+                    if (f == null)
+                    {
+                        return NotFound();
+                    }
+
+                    List<Claim> userClaims = new()
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, f.Email),
+                        new Claim(ClaimTypes.Email, f.Email),
+                        new Claim(ClaimTypes.Sid, f.Token),
+                        new Claim(ClaimTypes.Role, "Adm"),
+                        new Claim(ClaimTypes.Role, "Funcionario")
+                    };
+                    ClaimsIdentity minhaIdentity = new(userClaims, "Token");
+
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTime.Now.AddHours(1)
+                    };
+
+                    await HttpContext.SignInAsync(
+           CookieAuthenticationDefaults.AuthenticationScheme,
+           new ClaimsPrincipal(minhaIdentity),
+           authProperties);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
                 {
                     return NotFound();
                 }
-                if (!message.IsSuccessStatusCode)
-                {
-                    return NotFound();
-                }
-                List<Claim> userClaims = new()
-                {
-                    new Claim(ClaimTypes.NameIdentifier, f.Email),
-                    new Claim(ClaimTypes.Email, f.Email),
-                    new Claim(ClaimTypes.Sid, f.Token)
-                };
-                ClaimsIdentity minhaIdentity = new(userClaims, "Email");
-                ClaimsPrincipal userPrincipal = new(new[] { minhaIdentity });
-                //userPrincipal.IsInRole(f.Token);
-                //await HttpContext.SignInAsync(userPrincipal, new AuthenticationProperties
-                //{
-                //    IsPersistent = true,
-                //    AllowRefresh = true,
-                //    ExpiresUtc = DateTime.UtcNow.AddDays(30)
-                //});
-                HttpContext.Response.Cookies.Append("token",f.Token, new CookieOptions { Expires = DateTime.Now.AddHours(1) });
-                if (HttpContext.Request.Cookies.TryGetValue(f.Token, out string token) && f.Token == null)
-                {
-                    return NotFound();
-                }
-                return RedirectToAction("Index", "Home");
+
             }
             catch (Exception)
             {
                 return NotFound();
             }
-           
+
         }
         [Authorize]
         public async Task<IActionResult> Logoff()
@@ -86,7 +92,7 @@ namespace WEBPresentationLayer.Controllers
                 return NotFound();
             }
             TokenViewModel json = JsonConvert.DeserializeObject<TokenViewModel>(content);
-            if(json == null)
+            if (json == null)
             {
                 return NotFound();
             }

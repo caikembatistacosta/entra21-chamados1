@@ -3,14 +3,18 @@ using BLL.Impl;
 using BLL.Interfaces;
 using Common;
 using Entities;
+using Entities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Security.Claims;
 using WEBPresentationLayer.Models.Cliente;
+using WEBPresentationLayer.Models.Funcionario;
 
 namespace WEBPresentationLayer.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     public class ClienteController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -18,24 +22,37 @@ namespace WEBPresentationLayer.Controllers
         {
             httpClient.BaseAddress = new Uri("https://localhost:7202/");
             _httpClient = httpClient;
+           
         }
+        
+        [Authorize(Policy = "Adm")]
         public async Task<IActionResult> Index()
         {
             try
             {
+                ClaimsPrincipal userLogado = this.User;
+                string token = userLogado.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value;
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage message = await _httpClient.GetAsync("Cliente/All-Costumers");
-                message.EnsureSuccessStatusCode();
-                string json = await message.Content.ReadAsStringAsync();
-                List<ClienteSelectViewModel>? cliente = JsonConvert.DeserializeObject<List<ClienteSelectViewModel>>(json);
-                if (cliente == null)
+                if (message.IsSuccessStatusCode)
+                {
+                    string json = await message.Content.ReadAsStringAsync();
+                    List<ClienteSelectViewModel>? cliente = JsonConvert.DeserializeObject<List<ClienteSelectViewModel>>(json);
+                    if (cliente == null)
+                        return NotFound();
+                    return View(cliente);
+                }
+                else
+                {
                     return NotFound();
-                return View(cliente);
+                }
+
             }
             catch (Exception ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
-          
+
         }
         [HttpGet]
         public IActionResult Create()
@@ -46,38 +63,39 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ClienteInsertViewModel viewModel)
         {
-
             HttpResponseMessage message = await _httpClient.PostAsJsonAsync<ClienteInsertViewModel>("Cliente/Insert-Costumer", viewModel);
-            string content = await message.Content.ReadAsStringAsync();
-
-            if (content.Contains("400"))
-                return NotFound();
-
-            return RedirectToAction(nameof(Index));
+            if (message.IsSuccessStatusCode)
+            {
+                string content = await message.Content.ReadAsStringAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return NotFound();
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"Cliente/Edit-Costumer?id={id}");
-            response.EnsureSuccessStatusCode();
-            string json = await response.Content.ReadAsStringAsync();
-            ClienteUpdateViewModel? cliente = JsonConvert.DeserializeObject<ClienteUpdateViewModel>(json);
-            if (cliente == null)
-                return NotFound();
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+                ClienteUpdateViewModel? cliente = JsonConvert.DeserializeObject<ClienteUpdateViewModel>(json);
+                if (cliente == null)
+                    return NotFound();
+                return View(cliente);
 
-            return View(cliente);
-
+            }
+            return NotFound();
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ClienteUpdateViewModel viewModel)
         {
             HttpResponseMessage httpResponseMessage = await _httpClient.PutAsJsonAsync<ClienteUpdateViewModel>("Cliente/Update-Costumer", viewModel);
-            string content = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            if (content.Contains("400") || content.Contains("500") || content.Contains("404"))
-                return NotFound();
-
-            return RedirectToAction(nameof(Index));
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                string content = await httpResponseMessage.Content.ReadAsStringAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return NotFound();
         }
         [HttpGet]
         public async Task<IActionResult> Details(int id)
