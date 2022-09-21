@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sQcQvdETFKBebpqbWs+g+DrpRg0MXopGO0XUl5cdP0sYBMRnpfGPrPvNwSGXpjZTH6aU7ZCjSEX2IYfpa8TcJQ==",
+  "dgSpecHash": "e8CgO0J0UJzoRMX+Q32s1QcHqhUn7NibnD9dSG2f73pAy0h4HT7igpjf61G2yn9Hlg4OtVz5964+C8wadNRnrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\entra21\\Desktop\\asoko\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
+  "projectFilePath": "C:\\Users\\entra21\\Desktop\\isaoidkosa\\entra21-chamados1\\WEBPresentationLayer\\WEBPresentationLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\entra21\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

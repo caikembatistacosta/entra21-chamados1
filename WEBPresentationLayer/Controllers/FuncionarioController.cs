@@ -75,7 +75,7 @@ namespace MVCPresentationLayer.Controllers
         {
             Funcionario funcionario = _mapper.Map<Funcionario>(viewModel);
             Funcionario funcionarioUpdate = _Funcionariosvc.GetById(funcionario.Id).Result.Item;
-            funcionarioUpdate.Senha = funcionario.Senha;
+
             funcionarioUpdate.Nome = funcionario.Nome;
             funcionarioUpdate.Sobrenome = funcionario.Sobrenome;
             funcionarioUpdate.DataNascimento = funcionario.DataNascimento;

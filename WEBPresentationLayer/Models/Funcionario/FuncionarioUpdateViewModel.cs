@@ -18,9 +18,7 @@ namespace WEBPresentationLayer.Models.Funcionario
         [Required(ErrorMessage = "Email deve ser informado.")]
         [Display(Name = "Email")]
         [EmailAddress]
-        public string Email { get; set; }
-            
-
+        public string Email { get; set; }          
 
         [Required(ErrorMessage = "Data Nascimento deve ser informada")]
         [DataType(DataType.Date)]
@@ -33,6 +31,6 @@ namespace WEBPresentationLayer.Models.Funcionario
         [Required(ErrorMessage = "Informar nivel de acesso")]
         [Display(Name = "Nivel De Acesso")]
         public NivelDeAcesso NivelDeAcesso { get; set; }
-
+      
     }
 }

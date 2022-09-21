@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,16 @@ namespace Entities
 {
     public class PessoaFisica
     {
+
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Email { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public Genero Genero { get; set; }
+        public Endereco Endereco { get; set; }
+        public int EnderecoID { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-
-        public DateTime DataNascimento { get; set; }
         public int Idade
         {
             get
@@ -27,6 +34,7 @@ namespace Entities
             }
 
         }
+        public bool IsAtivo { get; set; }
 
     }
 }

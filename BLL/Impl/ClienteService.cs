@@ -36,7 +36,7 @@ namespace BLL.Impl
                 return response;
             }
             //Se o pet está sendo cadastrado, então ele está ativo.
-            c.EstaAtivo = true;
+            c.IsAtivo = true;
             //Se chegou aqui, é pq a validação passou e o PET está pronto pra ser cadastrado no banco.
             response = await clienteDao.Insert(c);
             return response;
