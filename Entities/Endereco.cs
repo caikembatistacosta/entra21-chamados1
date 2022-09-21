@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Endereco
+    public class Endereco : Entity
     {
-        public int Id { get; set; }
+
         public string Cep { get; set; }
         public string Cidade { get; set; }
         public string Numero { get; set; }
@@ -18,5 +18,7 @@ namespace Entities
         public string PontoReferencia { get; set; }
         public Estado Estado { get; set; }
         public int EstadoId { get; set; }
+
+        public Cliente Cliente { get; set; }
     }
 }

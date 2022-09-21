@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\entra21\\Desktop\\TCC\\entra21-chamados1\\Entities\\Entities.csproj": {}
+    "C:\\Users\\entra21\\Desktop\\task\\entra21-chamados1\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\entra21\\Desktop\\TCC\\entra21-chamados1\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\Desktop\\task\\entra21-chamados1\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\TCC\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\Desktop\\task\\entra21-chamados1\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\entra21\\Desktop\\TCC\\entra21-chamados1\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\entra21\\Desktop\\task\\entra21-chamados1\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\entra21\\Desktop\\TCC\\entra21-chamados1\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\entra21\\Desktop\\task\\entra21-chamados1\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

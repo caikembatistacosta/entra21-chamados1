@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WEBPresentationLayer.Models.Cliente
 {
-    public class ChamadoSelectViewModel
+    public class ClienteSelectViewModel
     {
         public int ID { get; set; }
         public string Nome { get; set; }
@@ -14,5 +14,11 @@ namespace WEBPresentationLayer.Models.Cliente
 
         [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
+        public string CEP { get; set; }
+        public string Rua { get; set; }
+        public string Bairro { get; set; }
+        public string Numero { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
     }
 }

@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Impl;
+using BLL.Interfaces;
+using Common;
+using Entities;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WEBPresentationLayer.Models;
 
@@ -7,15 +11,19 @@ namespace WEBPresentationLayer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IDemandaService _DemandaService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IDemandaService DemandaService)
         {
             _logger = logger;
+            this._DemandaService = DemandaService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            //SUBSTITUIR DEPOIS PELA CHAMADA DA WEB API DO DAVI
+            DataResponse<Demanda> DemandasResponse = await _DemandaService.GetLast6();
+            return View(DemandasResponse.Data);
         }
 
         public IActionResult Privacy()
