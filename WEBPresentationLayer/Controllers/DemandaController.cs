@@ -5,7 +5,9 @@ using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Security.Claims;
 using WEBPresentationLayer.Models.Demanda;
 
 namespace WEBPresentationLayer.Controllers
@@ -24,6 +26,9 @@ namespace WEBPresentationLayer.Controllers
         {
             try
             {
+                ClaimsPrincipal userLogado = this.User;
+                string token = userLogado.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value;
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage response = await _httpClient.GetAsync("Demanda/All-Demands");
                 response.EnsureSuccessStatusCode();
                 string json = await response.Content.ReadAsStringAsync();
@@ -48,13 +53,24 @@ namespace WEBPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DemandaInsertViewModel viewModel)
         {
-            HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Demanda/Insert-Demands", viewModel);
-            string content = await message.Content.ReadAsStringAsync();
+            try
+            {
+                ClaimsPrincipal userLogado = this.User;
+                string token = userLogado.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value;
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                HttpResponseMessage message = await _httpClient.PostAsJsonAsync<DemandaInsertViewModel>("Demanda/Insert-Demands", viewModel);
 
-            if (content.Contains("400"))
+                if (!message.IsSuccessStatusCode)
+                    return NotFound();
+
+                string content = await message.Content.ReadAsStringAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
                 return NotFound();
-
-            return RedirectToAction(nameof(Index));
+            }
+            
         }
         [HttpGet]
         public async Task<IActionResult> Edit(int id)

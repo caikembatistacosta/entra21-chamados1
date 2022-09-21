@@ -2,13 +2,16 @@
 using Common;
 using DAO.Interfaces;
 using Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +27,7 @@ namespace BLL.Impl
 
         public Task<Response> DeleteRefreshToken(string email, string refreshToken)
         {
-            return tokenDAO.DeleteRefreshToken(email,refreshToken);
+            return tokenDAO.DeleteRefreshToken(email, refreshToken);
         }
         public Task<SingleResponse<Funcionario>> GetRefreshToken(string email)
         {
@@ -33,7 +36,7 @@ namespace BLL.Impl
 
         public Task<SingleResponse<Funcionario>> InsertRefreshToken(string email, string refreshToken)
         {
-            return tokenDAO.InsertRefreshToken(email,refreshToken);
+            return tokenDAO.InsertRefreshToken(email, refreshToken);
         }
         public SingleResponse<string> GenerateToken(Funcionario funcionario)
         {
@@ -84,7 +87,7 @@ namespace BLL.Impl
                     ValidateAudience = false,
                     ValidateIssuer = false,
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Settings.Secret.PadRight(512/8,'\0'))),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Settings.Secret.PadRight(512 / 8, '\0'))),
                     ValidateLifetime = false,
                 };
                 JwtSecurityTokenHandler tokenHandler = new();
@@ -99,7 +102,7 @@ namespace BLL.Impl
             {
                 return SingleResponseFactory<ClaimsPrincipal>.CreateInstance().CreateFailureSingleResponse(ex);
             }
-            
+
         }
         public SingleResponse<string> RefreshToken()
         {
@@ -107,6 +110,46 @@ namespace BLL.Impl
             using RandomNumberGenerator rgn = RandomNumberGenerator.Create();
             rgn.GetBytes(randomNumber);
             return SingleResponseFactory<string>.CreateInstance().CreateSuccessSingleResponse(Convert.ToBase64String(randomNumber));
+        }
+
+        public Response ValidateToken(string token)
+        {
+            JwtSecurityTokenHandler tokenHandler = new();
+            SingleResponse<TokenValidationParameters> validationParameters = GetValidationParameters();
+            IPrincipal principal = tokenHandler.ValidateToken(token, validationParameters.Item, out SecurityToken validatedToken);
+            if (!principal.Identity.IsAuthenticated || principal.Identity.Name == null)
+            {
+                return new Response()
+                {
+                    HasSuccess = false,
+                    Message = "Token validado com sucesso"
+                };
+            }
+
+            return new Response()
+            {
+                HasSuccess = true,
+                Message = "Token validado com sucesso"
+            };
+        }
+
+        public SingleResponse<TokenValidationParameters> GetValidationParameters()
+        {
+            var token = new TokenValidationParameters()
+            {
+                ValidateLifetime = false, // Because there is no expiration in the generated token
+                ValidateAudience = false, // Because there is no audiance in the generated token
+                ValidateIssuer = false,   // Because there is no issuer in the generated token
+                ValidIssuer = "Sample",
+                ValidAudience = "Sample",
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Settings.Secret)) // The same key as the one that generate the token
+            };
+            return new SingleResponse<TokenValidationParameters>()
+            {
+                HasSuccess = true,
+                Message = "Sucesso",
+                Item = token
+            };
         }
     }
 }

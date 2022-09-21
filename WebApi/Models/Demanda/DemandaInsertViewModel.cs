@@ -21,7 +21,7 @@ namespace WebApi.Models.Demanda
         public DateTime DataInicio { get; set; }
         [DataType(DataType.Date)]
         public DateTime DataFim { get; set; }
-
+        public string? Token { get; set; }
 
     }
 

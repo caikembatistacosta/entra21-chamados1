@@ -14,7 +14,7 @@ using WEBPresentationLayer.Models.Funcionario;
 
 namespace WEBPresentationLayer.Controllers
 {
-    //[Authorize(Roles = "Administrador")]
+    [Authorize]
     public class ClienteController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -25,7 +25,6 @@ namespace WEBPresentationLayer.Controllers
            
         }
         
-        [Authorize(Policy = "Adm")]
         public async Task<IActionResult> Index()
         {
             try

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Security.Claims;
 using WEBPresentationLayer.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 builder.Services.AddAuthorization(opt =>
 {
-    opt.AddPolicy("Adm", p => p.RequireRole(NivelDeAcesso.Adm.ToString()));
+    opt.AddPolicy("Adm", p => p.RequireRole(NivelDeAcesso.Adm.ToString(), p.RequireClaim(ClaimTypes.Role, NivelDeAcesso.Adm.ToString()).ToString()));
 });
 
 builder.Services.AddDbContext<DemandasDbContext>(options =>

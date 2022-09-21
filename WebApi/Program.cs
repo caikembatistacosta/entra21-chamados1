@@ -28,7 +28,7 @@ builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DemandasDbContext>(options => {
-    options.UseSqlServer("name=ConnectionStrings:DemandaDB2");
+    options.UseSqlServer("name=ConnectionStrings:Demanda");
 });
 builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IClienteDAO, ClienteDAO>();
