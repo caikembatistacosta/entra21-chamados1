@@ -11,19 +11,19 @@ namespace MVCPresentationLayer.Controllers
 {
     public class FuncionarioController : Controller
     {
-        private readonly IFuncionarioService _Funcionario;
+        private readonly IFuncionarioService _Funcionarios;
         private readonly IMapper _mapper;
-        private string? funcionario;
+        private string? funcionarios;
 
         public FuncionarioController(IFuncionarioService svc, IMapper mapper)
         {
-            this._Funcionario = svc;
+            this._Funcionarios = svc;
             this._mapper = mapper;
         }
         public async Task<IActionResult> Index()
         {
 
-            DataResponse<Funcionario> responseFuncionario = await _Funcionario.GetAll();
+            DataResponse<Funcionario> responseFuncionario = await _Funcionarios.GetAll();
 
             if (!responseFuncionario.HasSuccess)
             {
@@ -49,7 +49,7 @@ namespace MVCPresentationLayer.Controllers
             viewModel.Senha = viewModel.Senha.Hash();
             Funcionario Funcionario = _mapper.Map<Funcionario>(viewModel);
 
-            Response response = await _Funcionario.Insert(Funcionario);
+            Response response = await _Funcionarios.Insert(Funcionario);
 
             if (response.HasSuccess)
                 return RedirectToAction("Index");
@@ -60,7 +60,7 @@ namespace MVCPresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            SingleResponse<Funcionario> resoponseFuncionario = await _Funcionario.GetById(id);
+            SingleResponse<Funcionario> resoponseFuncionario = await _Funcionarios.GetById(id);
             if (!resoponseFuncionario.HasSuccess)
             {
 
@@ -76,14 +76,14 @@ namespace MVCPresentationLayer.Controllers
         {
             viewModel.Senha = viewModel.Senha.Hash();
             Funcionario funcionario = _mapper.Map<Funcionario>(viewModel);
-            Funcionario funcionarioUpdate = _Funcionario.GetById(funcionario.Id).Result.Item;
+            Funcionario funcionarioUpdate = _Funcionarios.GetById(funcionario.Id).Result.Item;
             funcionarioUpdate.Senha = funcionario.Senha;
             funcionarioUpdate.Nome = funcionario.Nome;
             funcionarioUpdate.Sobrenome = funcionario.Sobrenome;
             funcionarioUpdate.DataNascimento = funcionario.DataNascimento;
             funcionarioUpdate.Genero = funcionario.Genero;
             funcionarioUpdate.NivelDeAcesso = funcionario.NivelDeAcesso;
-            Response response = await _Funcionario.Update(funcionarioUpdate);
+            Response response = await _Funcionarios.Update(funcionarioUpdate);
             if (response.HasSuccess)
             {
                 return RedirectToAction("Index");
@@ -93,14 +93,13 @@ namespace MVCPresentationLayer.Controllers
         }
         public async Task<IActionResult> Details(int id)
         {
-            SingleResponse<Funcionario> single = await _Funcionario.GetById(id);
+            SingleResponse<Funcionario> single = await _Funcionarios.GetById(id);
             if (!single.HasSuccess)
             {
                 return RedirectToAction(nameof(Index));
             }
-            Funcionario funcionario= single.Item;
+            Funcionario funcionario = single.Item;
             FuncionarioDetailsViewModel viewModel = _mapper.Map<FuncionarioDetailsViewModel>(funcionario);
-
             return View(viewModel);
         }
 

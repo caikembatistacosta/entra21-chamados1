@@ -14,7 +14,7 @@ namespace WEBPresentationLayer.Profile.Funcionarios
             CreateMap<Funcionario, FuncionarioUpdateViewModel>();
             CreateMap<FuncionarioUpdateViewModel, Funcionario>();
             CreateMap<FuncionarioDetailsViewModel, Funcionario>();
-            CreateMap<Demanda, FuncionarioDetailsViewModel>();
+            CreateMap<Funcionario, FuncionarioDetailsViewModel>();
         }
     }
 }
