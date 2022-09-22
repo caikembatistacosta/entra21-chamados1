@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Funcionarios";
 }
-
+<div class="container">
 <h1>Funcionarios</h1>
 
 <p>
@@ -74,10 +74,11 @@
             </td>
             <td>
                     @Html.ActionLink("Editar", "Edit", new { id=item.Id  }) |
-                    @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
+                    @Html.ActionLink("Detalhes", "Details", new {  id=item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
+</div>
     </tbody>
 </table>

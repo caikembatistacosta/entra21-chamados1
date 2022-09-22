@@ -9,10 +9,11 @@
     {
         @using (Html.BeginForm("ChangeStatusInProgress", "Demanda", @Model))
         {
-            <h1>Details</h1>
+            <div class="container">
+            <h1>Detalhes</h1>
 
             <div>
-                <h4>DemandaDetailsViewModel</h4>
+
                 <hr />
                 <dl class="row">
                     <dt class="col-sm-2">
@@ -76,14 +77,15 @@
                 @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
                 <a asp-action="Index">Back to List</a>
             </div>
+            </div>
         }
     }else{
         @using (Html.BeginForm("ChangeStatusInFinished", "Demanda", @Model,FormMethod.Post,false, new { enctype = "multipart/form-data" }))
         {
-            <h1>Details</h1>
+            <h1>Detalhes</h1>
 
             <div>
-                <h4>DemandaDetailsViewModel</h4>
+
                 <hr />
                 <dl class="row">
                     <dt class="col-sm-2">
