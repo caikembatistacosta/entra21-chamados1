@@ -3,9 +3,9 @@ using WEBPresentationLayer.Models.Funcionario;
 
 namespace WEBPresentationLayer.Profile.Funcionarios
 {
-    public class LoginProfile : AutoMapper.Profile
+    public class SenhaProfile : AutoMapper.Profile
     {
-        public LoginProfile()
+        public SenhaProfile()
         {
             CreateMap<FuncionarioLoginViewModel, Funcionario>();
             CreateMap<Funcionario, FuncionarioLoginViewModel>();

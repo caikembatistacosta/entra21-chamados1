@@ -4,7 +4,6 @@ using Common;
 using Common.Extensions;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
-using WEBPresentationLayer.Models.Cliente;
 using WEBPresentationLayer.Models.Funcionario;
 
 namespace MVCPresentationLayer.Controllers
@@ -83,6 +82,53 @@ namespace MVCPresentationLayer.Controllers
             funcionarioUpdate.DataNascimento = funcionario.DataNascimento;
             funcionarioUpdate.Genero = funcionario.Genero;
             funcionarioUpdate.NivelDeAcesso = funcionario.NivelDeAcesso;
+            Response response = await _Funcionarios.Update(funcionarioUpdate);
+            if (response.HasSuccess)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.Errors = response.Message;
+            return View(funcionario);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditSenha(int id)
+        {
+            SingleResponse<Funcionario> resoponseFuncionario = await _Funcionarios.GetById(id);
+            if (!resoponseFuncionario.HasSuccess)
+            {
+
+                return RedirectToAction("Index");
+            }
+            Funcionario funcionario = resoponseFuncionario.Item;
+            FuncionarioUpdateSenhaViewModel vm = new FuncionarioUpdateSenhaViewModel();
+            vm.ID = id;
+
+
+            return View(vm);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> EditSenha(FuncionarioUpdateSenhaViewModel TrocarSenha, int id)
+        {
+            TrocarSenha.Senha = TrocarSenha.Senha.Hash();
+            TrocarSenha.ID = id;
+            Funcionario funcionario = _mapper.Map<Funcionario>(TrocarSenha);
+            Funcionario funcionarioUpdate = _Funcionarios.GetById(funcionario.Id).Result.Item;
+
+
+            if (TrocarSenha.Senha != funcionarioUpdate.Senha)
+            {
+                return View("SenhaErrada");
+            }
+
+            if (TrocarSenha.NovaSenha == TrocarSenha.NovaSenhaConfirmar)
+            {
+                funcionarioUpdate.Senha = TrocarSenha.NovaSenha.Hash();
+                funcionario.Senha = funcionarioUpdate.Senha;
+            }
+
             Response response = await _Funcionarios.Update(funcionarioUpdate);
             if (response.HasSuccess)
             {
